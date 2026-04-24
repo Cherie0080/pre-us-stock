@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./cover.png" />
   <style>
-    :root{--bg:#f7f3ec;--paper:#fffaf4;--card:#fff;--text:#171513;--sub:#726a62;--gold:#b58a55;--line:#eadbca;--dark:#15181d;--dark2:#1d222b;--green:#54d18a;--red:#ff6f6f}
+    :root{--bg:#f7f3ec;--paper:#fffaf4;--card:#fff;--text:#171513;--sub:#726a62;--gold:#b58a55;--line:#eadbca;--green:#54d18a;--red:#ff6f6f}
     *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;background:linear-gradient(180deg,#fdf9f3 0%,#f7f3ec 100%);color:var(--text);line-height:1.75}
     .wrap{max-width:1080px;margin:0 auto;padding:16px 12px 72px}.hero,.section,.dark-board{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:22px 18px}.hero{box-shadow:0 16px 34px rgba(80,56,30,.08)}
     .banner{display:block;text-align:center;padding:10px 14px;margin-bottom:12px;border-radius:999px;background:linear-gradient(135deg,#fff8ef 0%,#f2dfc7 100%);border:1px solid var(--line);color:#9a6b3d;font-weight:800;letter-spacing:.08em}
@@ -18,12 +18,15 @@
     .ig-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#8a5b2f;font-weight:700;text-decoration:none}.ig-icon{width:18px;height:18px}
     .pill{display:inline-block;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--gold);font-size:.83rem;font-weight:800;letter-spacing:.06em}
     h1{font-size:2rem;line-height:1.2;margin:14px 0 10px}.lead{color:var(--sub);margin:0}.section,.dark-board{margin-top:18px}.section h2,.dark-board h2{font-size:1.42rem;margin:0 0 12px}
-    .grid{display:grid;gap:14px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px}.tag{display:inline-block;margin-bottom:10px;background:#f2e2cf;color:#8a6135;padding:5px 11px;border-radius:999px;font-size:.8rem;font-weight:800}
+    .grid{display:grid;gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px}.tag{display:inline-block;margin-bottom:10px;background:#f2e2cf;color:#8a6135;padding:5px 11px;border-radius:999px;font-size:.8rem;font-weight:800}
     .big{font-size:1.12rem;font-weight:800;line-height:1.45}.muted{color:var(--sub)}
-    .dark-board{background:linear-gradient(180deg,#fffaf4 0%,#f8f1e6 100%);border-color:#eadbca;color:#231f1c}.dark-board .muted{color:#726a62}.table{display:grid;gap:12px}.row{display:grid;grid-template-columns:1.4fr .75fr .75fr .75fr .8fr 1fr;gap:10px;align-items:center;background:#fffaf4;border:1px solid #eadbca;border-radius:18px;padding:14px;box-shadow:0 8px 18px rgba(0,0,0,.04)}.row.head{background:#f3eadf;border-color:#e5d8c6;font-weight:800;color:#6f6255}.name{font-weight:800}.ticker{color:#2f7d4f;font-weight:700;margin-top:4px}.down{color:#2f7d4f}.up{color:#c55f5f}.rank{color:#b58a55;font-weight:800}.space-box{background:linear-gradient(180deg,#fffaf2 0%,#f8f1e6 100%);border:1px solid #eadfce;border-radius:22px;padding:18px;box-shadow:0 14px 30px rgba(0,0,0,.04);color:#3a332c}.space-box .muted{color:#6f655a}.space-chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e4d8c8;font-size:.82rem;font-weight:800;color:#8a7460}.space-high{color:#2f7d4f;font-weight:800}.space-mid{color:#9a6b2f;font-weight:800}.space-low{color:#8a5a44;font-weight:800}
-    .social-card{background:linear-gradient(180deg,#171b22 0%,#11151c 100%);border:1px solid #2a313d;border-radius:28px;padding:20px;color:#f5f7fb;box-shadow:0 18px 40px rgba(0,0,0,.28)}
-    .social-title{font-size:1.65rem;line-height:1.25;font-weight:800;margin:12px 0 6px}.mini{font-size:.92rem;color:#aab3c2}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chip{padding:6px 10px;border-radius:999px;background:#202633;border:1px solid #323b4d;color:#eac27c;font-size:.82rem;font-weight:700}.fx-box{background:linear-gradient(180deg,#fffaf2 0%,#f8f1e6 100%);border:1px solid #eadfce;border-radius:22px;padding:18px;margin-top:14px}.tool-input{width:100%;padding:10px 12px;border:1px solid #e4d8c8;border-radius:14px;background:#fff;margin-top:6px;font-size:1rem}.footer{margin-top:20px;color:#8f857d;font-size:.9rem;text-align:center}
-    @media (max-width:800px){.grid-2,.grid-3,.row{grid-template-columns:1fr}.row.head{display:none}h1{font-size:1.7rem}.wrap{padding:12px 10px 64px}}
+    .dark-board{background:linear-gradient(180deg,#fffaf4 0%,#f8f1e6 100%);border-color:#eadbca;color:#231f1c}.dark-board .muted{color:#726a62}
+    .social-card{background:linear-gradient(180deg,#fffaf4 0%,#f8f1e6 100%);border:1px solid #eadbca;border-radius:28px;padding:20px;color:#231f1c;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+    .social-title{font-size:1.65rem;line-height:1.25;font-weight:800;margin:12px 0 6px}.mini{font-size:.92rem;color:#726a62}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chip{padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e4d8c8;color:#b58a55;font-size:.82rem;font-weight:700}
+    .fx-box,.space-box{background:linear-gradient(180deg,#fffaf2 0%,#f8f1e6 100%);border:1px solid #eadfce;border-radius:22px;padding:18px}.fx-box{margin-top:14px}.tool-input,.sort-select{width:100%;padding:10px 12px;border:1px solid #e4d8c8;border-radius:14px;background:#fff;margin-top:6px;font-size:1rem}
+    .space-chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e4d8c8;font-size:.82rem;font-weight:800;color:#8a7460}.space-high{color:#2f7d4f;font-weight:800}.space-mid{color:#9a6b2f;font-weight:800}.space-low{color:#8a5a44;font-weight:800}
+    .footer{margin-top:20px;color:#8f857d;font-size:.9rem;text-align:center}
+    @media (max-width:800px){.grid-3{grid-template-columns:1fr}h1{font-size:1.7rem}.wrap{padding:12px 10px 64px}}
   </style>
 </head>
 <body>
@@ -44,9 +47,9 @@
     <section class="dark-board">
       <h2>📌 社群圖卡版</h2>
       <div class="social-card">
-        <div class="pill" style="background:#202633;border-color:#323b4d;color:#eac27c">今晚納入美股價值區</div>
+        <div class="pill">今晚納入美股價值區</div>
         <div class="social-title">2026/04/24 今晚美股價值區名單</div>
-        <div class="mini">依你提供的方舟運算截圖整理</div>
+        <div class="mini">整理今晚方舟運算截圖中的名單，<br>一次看完整版資料卡＋社群圖卡版。</div>
         <div class="chips">
           <div class="chip">SATL</div><div class="chip">LITE</div><div class="chip">LRCX</div><div class="chip">AMAT</div><div class="chip">MU</div><div class="chip">GEV</div><div class="chip">NVDA</div><div class="chip">KLAC</div><div class="chip">AVGO</div>
         </div>
@@ -56,9 +59,16 @@
     <section class="section">
       <h2>📘 完整版名單整理</h2>
       <div class="space-box" style="margin-bottom:14px;">
-        <div class="space-chip">灰底重點區</div>
+        <div class="space-chip">米白重點區</div>
         <p class="big" style="margin-top:10px;">新增「上行空間評估」欄位，採簡易版分級：</p>
         <p class="muted">高＝若主線續強，<br>位階修復後仍有延伸空間。<br><br>中＝偏整理後，<br>再觀察。<br><br>低＝雖進價值區，<br>但結構或彈性相對有限。</p>
+        <label class="muted" style="margin-top:12px;display:block;">排序方式</label>
+        <select id="sort-select" class="sort-select">
+          <option value="position-asc">位階股數，由低到高</option>
+          <option value="position-desc">位階股數，由高到低</option>
+          <option value="change-asc">漲跌幅，由低到高</option>
+          <option value="change-desc">漲跌幅，由高到低</option>
+        </select>
       </div>
       <div class="fx-box">
         <div class="space-chip">可手動調整工具區</div>
@@ -69,25 +79,16 @@
         <input id="fx-rate-input" class="tool-input" type="number" step="0.01" value="32" />
         <p class="muted">目前匯率顯示：<span id="fx-rate">32.00</span> TWD / USD<br>說明：目前採保守版，只自動抓少數重點股，其餘維持手動，避免撞到免費額度限制。</p>
       </div>
-      <div class="grid">
-        <div class="card"><div class="tag">- KLAC</div><p class="big">科磊</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="KLAC" data-auto="0" data-shares="0.11" value="1815.43" /><p>漲跌幅：+0.19%</p><p>位階股數：0.11</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.11 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- GEV</div><p class="big">GE VERNOVA INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="GEV" data-auto="0" data-shares="0.18" value="1149.53" /><p>漲跌幅：+1.95%</p><p>位階股數：0.18</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.18 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- MU</div><p class="big">美光科技</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="MU" data-auto="0" data-shares="0.44" value="481.72" /><p>漲跌幅：-1.18%</p><p>位階股數：0.44</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.44 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- LITE</div><p class="big">LUMENTUM HOLDINGS INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="LITE" data-auto="1" data-shares="0.45" value="846.89" /><p>漲跌幅：-3.06%</p><p>位階股數：0.45</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.45 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- AVGO</div><p class="big">博通</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="AVGO" data-auto="0" data-shares="0.46" value="419.94" /><p>漲跌幅：-0.64%</p><p>位階股數：0.46</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.46 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- AMAT</div><p class="big">應用材料</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="AMAT" data-auto="1" data-shares="0.62" value="403.91" /><p>漲跌幅：+0.11%</p><p>位階股數：0.62</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.62 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- NVDA</div><p class="big">輝達</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="NVDA" data-auto="1" data-shares="1.03" value="199.64" /><p>漲跌幅：-1.41%</p><p>位階股數：1.03</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝1.03 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- LRCX</div><p class="big">科林研發</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="LRCX" data-auto="1" data-shares="1.36" value="258.56" /><p>漲跌幅：-2.63%</p><p>位階股數：1.36</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝1.36 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- SATL</div><p class="big">SATELLOGIC INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="SATL" data-auto="0" data-shares="79.11" value="6.81" /><p>漲跌幅：-5.94%</p><p>位階股數：79.11</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝79.11 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-      </div><p class="big">SATELLOGIC INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="SATL" data-auto="0" data-shares="79.11" value="6.81" /><p>漲跌幅：-5.94%</p><p>位階股數：79.11</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝79.11 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- LITE</div><p class="big">LUMENTUM HOLDINGS INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="LITE" data-auto="1" data-shares="0.45" value="846.89" /><p>漲跌幅：-3.06%</p><p>位階股數：0.45</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.45 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- LRCX</div><p class="big">科林研發</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="LRCX" data-auto="1" data-shares="1.36" value="258.56" /><p>漲跌幅：-2.63%</p><p>位階股數：1.36</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝1.36 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- AMAT</div><p class="big">應用材料</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="AMAT" data-auto="1" data-shares="0.62" value="403.91" /><p>漲跌幅：+0.11%</p><p>位階股數：0.62</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.62 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- MU</div><p class="big">美光科技</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="MU" data-auto="0" data-shares="0.44" value="481.72" /><p>漲跌幅：-1.18%</p><p>位階股數：0.44</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.44 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- GEV</div><p class="big">GE VERNOVA INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="GEV" data-auto="0" data-shares="0.18" value="1149.53" /><p>漲跌幅：+1.95%</p><p>位階股數：0.18</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.18 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- NVDA</div><p class="big">輝達</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="NVDA" data-auto="1" data-shares="1.03" value="199.64" /><p>漲跌幅：-1.41%</p><p>位階股數：1.03</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝1.03 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- KLAC</div><p class="big">科磊</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="KLAC" data-auto="0" data-shares="0.11" value="1815.43" /><p>漲跌幅：+0.19%</p><p>位階股數：0.11</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.11 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
-        <div class="card"><div class="tag">- AVGO</div><p class="big">博通</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="AVGO" data-auto="0" data-shares="0.46" value="419.94" /><p>漲跌幅：-0.64%</p><p>位階股數：0.46</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.46 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+      <div class="grid" id="stock-grid">
+        <div class="card" data-position="0.11" data-change="0.19"><div class="tag">- KLAC</div><p class="big">科磊</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="KLAC" data-auto="0" data-shares="0.11" value="1815.43" /><p>漲跌幅：+0.19%</p><p>位階股數：0.11</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.11 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="0.18" data-change="1.95"><div class="tag">- GEV</div><p class="big">GE VERNOVA INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="GEV" data-auto="0" data-shares="0.18" value="1149.53" /><p>漲跌幅：+1.95%</p><p>位階股數：0.18</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.18 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="0.44" data-change="-1.18"><div class="tag">- MU</div><p class="big">美光科技</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="MU" data-auto="0" data-shares="0.44" value="481.72" /><p>漲跌幅：-1.18%</p><p>位階股數：0.44</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.44 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="0.45" data-change="-3.06"><div class="tag">- LITE</div><p class="big">LUMENTUM HOLDINGS INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="LITE" data-auto="1" data-shares="0.45" value="846.89" /><p>漲跌幅：-3.06%</p><p>位階股數：0.45</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.45 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="0.46" data-change="-0.64"><div class="tag">- AVGO</div><p class="big">博通</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="AVGO" data-auto="0" data-shares="0.46" value="419.94" /><p>漲跌幅：-0.64%</p><p>位階股數：0.46</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.46 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="0.62" data-change="0.11"><div class="tag">- AMAT</div><p class="big">應用材料</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="AMAT" data-auto="1" data-shares="0.62" value="403.91" /><p>漲跌幅：+0.11%</p><p>位階股數：0.62</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝0.62 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="1.03" data-change="-1.41"><div class="tag">- NVDA</div><p class="big">輝達</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="NVDA" data-auto="1" data-shares="1.03" value="199.64" /><p>漲跌幅：-1.41%</p><p>位階股數：1.03</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝1.03 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="1.36" data-change="-2.63"><div class="tag">- LRCX</div><p class="big">科林研發</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="LRCX" data-auto="1" data-shares="1.36" value="258.56" /><p>漲跌幅：-2.63%</p><p>位階股數：1.36</p><p>上行空間：高</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝1.36 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
+        <div class="card" data-position="79.11" data-change="-5.94"><div class="tag">- SATL</div><p class="big">SATELLOGIC INC</p><label class="muted">收盤價</label><input class="tool-input stock-price" data-symbol="SATL" data-auto="0" data-shares="79.11" value="6.81" /><p>漲跌幅：-5.94%</p><p>位階股數：79.11</p><p>上行空間：中</p><p class="fx-calc">佈局金額：<br>1️⃣ 一股戰法＝<span class="usd-one"></span> USD｜約 NT$<span class="tw-one"></span><br>2️⃣ 位階佈局＝79.11 × <span class="usd-one"></span> ≈ <span class="usd-pos"></span> USD｜約 NT$<span class="tw-pos"></span></p></div>
       </div>
     </section>
 
@@ -123,7 +124,7 @@
     function updateAll() {
       const rate = parseFloat(document.getElementById('fx-rate-input').value || '32');
       document.getElementById('fx-rate').textContent = rate.toFixed(2);
-      document.querySelectorAll('.card').forEach(card => {
+      document.querySelectorAll('#stock-grid .card').forEach(card => {
         const input = card.querySelector('.stock-price');
         const calc = card.querySelector('.fx-calc');
         if (!input || !calc) return;
@@ -146,7 +147,6 @@
       document.getElementById('fx-rate-input').value = rate.toFixed(2);
       updateAll();
     }
-
     async function loadPricesFromApi() {
       const apiKey = document.getElementById('api-key-input').value.trim();
       if (!apiKey) return;
@@ -159,18 +159,32 @@
           const res = await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`);
           const data = await res.json();
           const quote = data['Global Quote'];
-          if (quote && quote['05. price']) {
-            input.value = parseFloat(quote['05. price']).toFixed(2);
-          }
+          if (quote && quote['05. price']) input.value = parseFloat(quote['05. price']).toFixed(2);
         } catch (e) {}
       }
       updateAll();
     }
-
+    function sortCards(mode) {
+      const grid = document.getElementById('stock-grid');
+      const cards = [...grid.querySelectorAll('.card')];
+      cards.sort((a, b) => {
+        const posA = parseFloat(a.dataset.position || '0');
+        const posB = parseFloat(b.dataset.position || '0');
+        const chA = parseFloat(a.dataset.change || '0');
+        const chB = parseFloat(b.dataset.change || '0');
+        if (mode === 'position-asc') return posA - posB;
+        if (mode === 'position-desc') return posB - posA;
+        if (mode === 'change-asc') return chA - chB;
+        if (mode === 'change-desc') return chB - chA;
+        return 0;
+      });
+      cards.forEach(card => grid.appendChild(card));
+    }
     document.addEventListener('input', (e) => {
       if (e.target.matches('#fx-rate-input, .stock-price')) updateAll();
     });
     document.getElementById('api-key-input').addEventListener('change', loadPricesFromApi);
+    document.getElementById('sort-select').addEventListener('change', (e) => sortCards(e.target.value));
     loadFx();
   </script>
 </body>
