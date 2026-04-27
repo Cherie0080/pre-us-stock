@@ -7,45 +7,67 @@
   <meta name="description" content="2026/04/27 美股開盤前預期、AI 主線熱門新聞整理與個股分析。" />
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #131a2e;
-      --card2: #1a2340;
-      --text: #eef3ff;
-      --muted: #a9b4d0;
-      --accent: #7aa2ff;
-      --good: #56d39b;
-      --warn: #ffcc66;
-      --line: #2a365f;
+      --black: #111111;
+      --ivory: #F7F3EE;
+      --gold: #C9A96E;
+      --gray: #A6A6A6;
+      --up: #B76E5D;
+      --down: #5E7463;
+      --neutral: #8C8C8C;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #09111f 0%, #0d1326 100%);
-      color: var(--text);
-      line-height: 1.65;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: var(--ivory);
+      color: var(--black);
+      line-height: 1.7;
     }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
-    .banner { text-align: center; color: #d7c7ff; letter-spacing: 1px; margin-bottom: 10px; }
-    .brand { text-align: center; color: var(--muted); margin-bottom: 28px; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 64px; }
+    .banner {
+      display:block; text-align:center; padding:10px 14px; margin-bottom:12px;
+      border-radius:999px; background:linear-gradient(135deg,#fff8ef 0%,#f2dfc7 100%);
+      border:1px solid rgba(201,169,110,.28); color:#9a6b3d; font-weight:800; letter-spacing:.08em;
+    }
+    .brand { color: var(--gray); margin-bottom: 28px; text-align:center; }
     h1, h2, h3 { line-height: 1.25; }
     h1 { font-size: 34px; margin: 0 0 10px; }
     h2 { font-size: 24px; margin: 0 0 14px; }
-    .hero, .card { background: rgba(19, 26, 46, 0.94); border: 1px solid var(--line); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .hero, .card {
+      background: #fffdf9;
+      border: 1px solid rgba(201, 169, 110, 0.28);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(17, 17, 17, 0.05);
+    }
     .hero { margin-bottom: 24px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
-    .meta { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
-    .tag { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; margin-right: 8px; margin-bottom: 8px; background: #233154; color: #dce6ff; }
+    .meta { color: var(--gray); font-size: 14px; margin-bottom: 14px; }
+    .tag {
+      display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px;
+      margin-right: 8px; margin-bottom: 8px; background: #f2e2cf; color: #8a6135;
+    }
     ul { margin: 10px 0 0 20px; padding: 0; }
     li { margin-bottom: 8px; }
-    a { color: #99bbff; text-decoration: none; }
+    a { color: #8a5b2f; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; }
-    .summary .mini { background: var(--card2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-    .callout { margin-top: 18px; padding: 16px; border-left: 4px solid var(--accent); background: rgba(122,162,255,0.08); border-radius: 10px; }
-    .good { color: var(--good); }
-    .warn { color: var(--warn); }
-    .footer { margin-top: 30px; color: var(--muted); font-size: 13px; }
+    .summary .mini {
+      background: white;
+      border: 1px solid rgba(201, 169, 110, 0.28);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .callout {
+      margin-top: 18px;
+      padding: 16px;
+      border-left: 4px solid var(--gold);
+      background: #fff4ea;
+      border-radius: 10px;
+    }
+    .good { color: var(--up); }
+    .warn { color: var(--down); }
+    .footer { margin-top: 30px; color: var(--gray); font-size: 13px; }
   </style>
 </head>
 <body>
