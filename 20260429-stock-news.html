@@ -34,19 +34,36 @@
     h1 { font-size:2.05rem; line-height:1.2; margin:16px 0 14px; letter-spacing:-.03em; }
     h2 { font-size:1.45rem; margin:0 0 12px; }
     .lead { color:var(--sub); margin:0; }
-    .grid-two,.grid-three,.stats,.market-strip,.alloc-grid,.mini-meters { display:grid; gap:14px; }
+    .grid-two,.grid-three,.stats,.market-strip,.alloc-grid,.mini-meters,.list-grid,.verify-grid { display:grid; gap:14px; }
     .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .stats { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:16px; }
     .market-strip { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .alloc-grid { grid-template-columns:1.1fr .9fr; }
     .mini-meters { grid-template-columns:repeat(5,minmax(0,1fr)); }
+    .list-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .verify-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:16px; min-width:0; }
     .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
     .muted { color:var(--sub); }
     .bigline { font-size:1.08rem; font-weight:800; line-height:1.6; margin:0 0 10px; }
     .market-number { font-size:1.9rem; font-weight:900; line-height:1.1; margin:6px 0; }
     .market-change { font-weight:800; color:#9c6a1c; }
+    .dashboard-card { box-shadow:0 10px 24px rgba(95,73,48,.08); }
+    .chip-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .chip { padding:7px 10px; border-radius:999px; background:#fff; border:1px solid var(--line); color:#7d6650; font-size:.82rem; font-weight:700; }
+    .list-card { padding:18px; }
+    .list-title { font-size:1.02rem; font-weight:900; margin-bottom:12px; }
+    .ticker-list { display:flex; flex-direction:column; gap:10px; }
+    .ticker-item { display:flex; justify-content:space-between; gap:12px; padding:10px 12px; border-radius:16px; background:#fff; border:1px solid var(--line); }
+    .ticker-code { font-weight:900; color:#2d241d; }
+    .ticker-name { color:var(--sub); }
+    .ticker-state { font-weight:900; color:#9c6a1c; white-space:nowrap; }
+    .verify-card { padding:18px; }
+    .verify-head { font-size:1rem; font-weight:900; margin-bottom:10px; }
+    .verify-good { background:#eef8f0; }
+    .verify-warn { background:#fff7ea; }
+    .verify-mid { background:#f7f3ff; }
     .notice { background:#fff4ea; border-color:#efd7c1; }
     .green { background:var(--green); }
     .amber { background:var(--amber); }
@@ -71,7 +88,7 @@
     .mini-meter .mini-value { font-size:1.05rem; font-weight:900; color:#f1c85c; margin-top:4px; }
     @media (max-width:680px) {
       h1 { font-size:1.78rem; }
-      .grid-two,.grid-three,.stats,.market-strip,.alloc-grid,.mini-meters { grid-template-columns:1fr; }
+      .grid-two,.grid-three,.stats,.market-strip,.alloc-grid,.mini-meters,.list-grid,.verify-grid { grid-template-columns:1fr; }
       .wrap { padding:12px 10px 64px; }
       .hero,.dashboard,.section,.notice,.cta { padding:18px 14px; border-radius:22px; }
       .gauge { width:220px; height:220px; }
@@ -93,10 +110,16 @@
       <h1>主線還是 AI，但市場已從全面樂觀切到高檔分化模式</h1>
       <p class="lead">昨晚關鍵不是單純漲跌，而是半導體明顯回檔、七巨頭走勢分化、外資期貨部位仍偏空，代表今天台股更要看結構，不是只看指數表面。</p>
       <div class="stats">
-        <div class="card"><strong>費半 -3.58%</strong><div class="muted">半導體壓力升高</div></div>
-        <div class="card"><strong>台指夜盤 -272</strong><div class="muted">收 39,461</div></div>
-        <div class="card"><strong>-45,869 口</strong><div class="muted">外資台指期淨空單</div></div>
-        <div class="card"><strong class="risk-mid">中</strong><div class="muted">系統性風險</div></div>
+        <div class="card dashboard-card"><strong>費半 -3.58%</strong><div class="muted">半導體壓力升高</div></div>
+        <div class="card dashboard-card"><strong>台指夜盤 -272</strong><div class="muted">收 39,461</div></div>
+        <div class="card dashboard-card"><strong>-45,869 口</strong><div class="muted">外資台指期淨空單</div></div>
+        <div class="card dashboard-card"><strong class="risk-mid">中</strong><div class="muted">系統性風險</div></div>
+      </div>
+      <div class="chip-row">
+        <div class="chip">主線：AI</div>
+        <div class="chip">盤勢：高檔分化</div>
+        <div class="chip">策略：先看財報與指引</div>
+        <div class="chip">風控：略升</div>
       </div>
     </section>
 
@@ -132,7 +155,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card dashboard-card">
           <div class="tag">市場溫度儀表板</div>
           <div class="market-strip">
             <div class="card amber">
@@ -174,61 +197,95 @@
 
     <section class="section">
       <h2>🧭 方舟運算 ETF 清單</h2>
-      <div class="grid-two">
-        <div class="card green">
+      <div class="list-grid">
+        <div class="card list-card green">
           <div class="tag">ETF 價值區</div>
-          <ul>
-            <li>00910｜第一金太空衛星</li>
-            <li>00861｜元大全球未來通訊</li>
-            <li>0052｜富邦科技</li>
-            <li>00941｜中信上游半導體</li>
-            <li>00631L｜元大台灣50正2</li>
-            <li>0050｜元大台灣50</li>
-            <li>00830｜國泰費城半導體</li>
-          </ul>
+          <div class="list-title">適合優先觀察的 ETF</div>
+          <div class="ticker-list">
+            <div class="ticker-item"><div><div class="ticker-code">00910</div><div class="ticker-name">第一金太空衛星</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">00861</div><div class="ticker-name">元大全球未來通訊</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">0052</div><div class="ticker-name">富邦科技</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">00941</div><div class="ticker-name">中信上游半導體</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">00631L</div><div class="ticker-name">元大台灣50正2</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">0050</div><div class="ticker-name">元大台灣50</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">00830</div><div class="ticker-name">國泰費城半導體</div></div><div class="ticker-state">價值</div></div>
+          </div>
         </div>
-        <div class="card amber">
+        <div class="card list-card amber">
           <div class="tag">ETF 升溫區</div>
-          <ul>
-            <li>00876｜元大全球5G</li>
-            <li>00911｜兆豐洲際半導體</li>
-            <li>00920｜富邦ESG綠色電力</li>
-          </ul>
+          <div class="list-title">有題材，但追價要更小心</div>
+          <div class="ticker-list">
+            <div class="ticker-item"><div><div class="ticker-code">00876</div><div class="ticker-name">元大全球5G</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">00911</div><div class="ticker-name">兆豐洲際半導體</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">00920</div><div class="ticker-name">富邦ESG綠色電力</div></div><div class="ticker-state">升溫</div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>🏭 產業個股價值區清單</h2>
-      <div class="grid-two">
-        <div class="card green">
+      <div class="list-grid">
+        <div class="card list-card green">
           <div class="tag">個股價值區</div>
-          <ul>
-            <li>6285 啟碁、2324 仁寶、2382 廣達、6223 旺矽、3034 聯詠</li>
-            <li>3008 大立光、3045 台灣大、2449 京元電子、2313 華通、2455 全新</li>
-            <li>2360 致茂、6239 力成、3653 健策、2327 國巨*、3665 貿聯-KY</li>
-            <li>2303 聯電、2379 瑞昱、2330 台積電、3017 奇鋐、3711 日月光投控</li>
-            <li>2383 台光電、2059 川湖、2345 智邦、7769 鴻勁</li>
-          </ul>
+          <div class="list-title">新聞有望驗證的核心名單</div>
+          <div class="ticker-list">
+            <div class="ticker-item"><div><div class="ticker-code">6285</div><div class="ticker-name">啟碁</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2382</div><div class="ticker-name">廣達</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">6223</div><div class="ticker-name">旺矽</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">3034</div><div class="ticker-name">聯詠</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2449</div><div class="ticker-name">京元電子</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2360</div><div class="ticker-name">致茂</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">3665</div><div class="ticker-name">貿聯-KY</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2303</div><div class="ticker-name">聯電</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2330</div><div class="ticker-name">台積電</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">3017</div><div class="ticker-name">奇鋐</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">3711</div><div class="ticker-name">日月光投控</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2383</div><div class="ticker-name">台光電</div></div><div class="ticker-state">價值</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2345</div><div class="ticker-name">智邦</div></div><div class="ticker-state">價值</div></div>
+          </div>
         </div>
-        <div class="card amber">
+        <div class="card list-card amber">
           <div class="tag">個股升溫區</div>
-          <ul>
-            <li>3189 景碩、6415 矽力*-KY、3037 欣興</li>
-            <li>2308 台達電、2454 聯發科、4958 臻鼎-KY</li>
-          </ul>
+          <div class="list-title">有主線，但短線更容易震盪</div>
+          <div class="ticker-list">
+            <div class="ticker-item"><div><div class="ticker-code">3189</div><div class="ticker-name">景碩</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">6415</div><div class="ticker-name">矽力*-KY</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">3037</div><div class="ticker-name">欣興</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2308</div><div class="ticker-name">台達電</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">2454</div><div class="ticker-name">聯發科</div></div><div class="ticker-state">升溫</div></div>
+            <div class="ticker-item"><div><div class="ticker-code">4958</div><div class="ticker-name">臻鼎-KY</div></div><div class="ticker-state">升溫</div></div>
+          </div>
         </div>
       </div>
+      <p class="muted" style="margin-top:12px;">其餘今日辨識到的價值區標的包含 2324 仁寶、3008 大立光、3045 台灣大、2313 華通、2455 全新、6239 力成、3653 健策、2327 國巨*、2379 瑞昱、2059 川湖、7769 鴻勁。</p>
     </section>
 
     <section class="notice">
       <h2>📰 新聞交叉驗證重點</h2>
-      <ul>
-        <li>OpenAI 與 AWS 合作，直接驗證 AI 伺服器、交換器、光通訊、散熱、PCB 類股仍有基本面題材支撐，對應到廣達、緯創、智邦、奇鋐、雙鴻、台光電、金像電這類方向。</li>
-        <li>費半大跌 3.58%，和你清單中的 00830、00941、00911、台積電、聯電、日月光投控、旺矽、聯發科、景碩、欣興形成直接交叉驗證，代表半導體雖仍在主線，但短線先面臨評價壓力。</li>
-        <li>Nvidia 轉弱與高階 GPU / 記憶體題材仍在，代表旺矽、奇鋐、台達電、廣達、智邦、台光電這些 AI 基建鏈，較像高檔震盪中的結構篩選，不是整條線邏輯消失。</li>
-        <li>能源與電力題材延續，00920 富邦 ESG 綠色電力、台達電這類標的有中長線敘事支持，但短線若市場風險偏好下降，升溫標的更容易先震盪。</li>
-      </ul>
+      <div class="verify-grid">
+        <div class="card verify-card verify-good">
+          <div class="verify-head">✅ 已被新聞強化的主線</div>
+          <ul>
+            <li>OpenAI 與 AWS 合作，直接強化 AI 伺服器、交換器、光通訊、散熱、PCB 類股的基本面敘事。</li>
+            <li>對應清單：廣達、智邦、奇鋐、台光電、貿聯-KY。</li>
+          </ul>
+        </div>
+        <div class="card verify-card verify-warn">
+          <div class="verify-head">⚠️ 有題材，但短線有壓力</div>
+          <ul>
+            <li>費半大跌 3.58%，半導體鏈短線先面臨評價壓力。</li>
+            <li>對應清單：00830、00941、00911、台積電、聯電、日月光投控、旺矽、聯發科、景碩、欣興。</li>
+          </ul>
+        </div>
+        <div class="card verify-card verify-mid">
+          <div class="verify-head">🧩 中長線題材延續</div>
+          <ul>
+            <li>Nvidia 新 GPU、能源與電力題材仍在，代表 AI 基建與綠能並未失效，只是市場開始篩選。</li>
+            <li>對應清單：台達電、00920、旺矽、奇鋐、廣達、智邦。</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="section">
