@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rich Cherie｜2026/04/29 市場晨報</title>
+  <meta name="description" content="Rich Cherie 每日市場晨報，整理財經重點、川普動向、馬斯克消息、美股七巨頭、台指夜盤與台股產業影響。" />
+  <style>
+    :root {
+      --bg:#f7f3ec;
+      --paper:#fffaf4;
+      --card:#ffffff;
+      --text:#171513;
+      --sub:#726a62;
+      --gold:#b58a55;
+      --gold-soft:#f2e2cf;
+      --line:#eadbca;
+      --dark:#231f1c;
+      --rose:#fff5ee;
+      --green:#edf7ef;
+      --amber:#fff6e8;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#fdf9f3 0%,#f7f3ec 100%);
+      line-height:1.8;
+    }
+    .wrap { max-width:1020px; margin:0 auto; padding:16px 12px 80px; }
+    .hero,.section,.notice,.cta { background:var(--paper); border:1px solid var(--line); border-radius:28px; }
+    .hero { padding:24px 18px; box-shadow:0 16px 34px rgba(80,56,30,.08); }
+    .dashboard { margin-top:18px; display:grid; grid-template-columns:1.15fr .85fr; gap:16px; }
+    .banner {
+      display:block; text-align:center; padding:10px 14px; margin-bottom:12px;
+      border-radius:999px; background:linear-gradient(135deg,#fff8ef 0%,#f2dfc7 100%);
+      border:1px solid var(--line); color:#9a6b3d; font-weight:800; letter-spacing:.08em;
+    }
+    .brand { background:rgba(255,255,255,.78); border:1px solid var(--line); border-radius:24px; padding:16px; margin-bottom:16px; }
+    .brand-title { font-size:1.15rem; font-weight:800; margin-bottom:8px; }
+    .brand-sub { color:var(--sub); margin-bottom:6px; }
+    .pill {
+      display:inline-block; padding:7px 14px; border-radius:999px; background:#fff; border:1px solid var(--line);
+      color:var(--gold); font-size:.83rem; font-weight:800; letter-spacing:.06em;
+    }
+    h1 { font-size:2.05rem; line-height:1.2; margin:16px 0 14px; letter-spacing:-.03em; }
+    h2 { font-size:1.45rem; margin:0 0 12px; }
+    .lead { color:var(--sub); margin:0; }
+    .section,.notice,.cta { margin-top:18px; padding:20px 16px; }
+    .grid-two,.grid-three,.stats,.market-strip,.alloc-grid { display:grid; gap:14px; }
+    .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .stats { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:16px; }
+    .market-strip { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .alloc-grid { grid-template-columns:1fr 1fr; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:16px; min-width:0; }
+    .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
+    .muted { color:var(--sub); }
+    .bigline { font-size:1.08rem; font-weight:800; line-height:1.6; margin:0 0 10px; }
+    .market-number { font-size:1.9rem; font-weight:900; line-height:1.1; margin:6px 0; }
+    .market-change { font-weight:800; color:#9c6a1c; }
+    .allocation-panel { background:linear-gradient(135deg,#1b1b24 0%,#292334 48%,#37263d 100%); color:#fff; border:none; box-shadow:0 16px 34px rgba(48,29,34,.22); }
+    .allocation-panel .muted { color:#d8d1df; }
+    .gauge-wrap { display:flex; align-items:center; justify-content:center; padding:10px 0 4px; }
+    .gauge {
+      width:260px; height:260px; border-radius:50%; position:relative;
+      background:conic-gradient(#f1c85c 0 229.32deg,#8b8fa6 229.32deg 360deg);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 28px rgba(0,0,0,.22), inset 0 0 0 10px rgba(255,255,255,.04);
+    }
+    .gauge::before {
+      content:""; position:absolute; inset:18px; border-radius:50%;
+      background:radial-gradient(circle at 50% 35%,#2b2a33 0%,#17181d 65%,#111318 100%);
+      box-shadow:inset 0 0 30px rgba(255,255,255,.04);
+    }
+    .gauge-inner { position:relative; z-index:1; text-align:center; }
+    .gauge-label { font-size:1.1rem; font-weight:800; letter-spacing:.03em; }
+    .gauge-value { font-size:4rem; font-weight:900; line-height:1; margin-top:10px; }
+    .gauge-value span { font-size:2rem; }
+    .countdown { text-align:right; }
+    .countdown .t1 { color:#d8d1df; font-weight:800; }
+    .countdown .t2 { font-size:2rem; font-weight:900; line-height:1.1; margin-top:4px; }
+    .mini-meters { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:12px; }
+    .mini-meter { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:10px 8px; text-align:center; }
+    .mini-meter .mini-title { font-size:.76rem; color:#efe6f7; min-height:32px; }
+    .mini-meter .mini-value { font-size:1.05rem; font-weight:900; color:#f1c85c; margin-top:4px; }
+    .notice { background:#fff4ea; border-color:#efd7c1; }
+    .green { background:var(--green); }
+    .amber { background:var(--amber); }
+    ul { margin:10px 0 0; padding-left:1.2rem; color:var(--sub); }
+    li + li { margin-top:6px; }
+    .footer { margin-top:20px; color:#8f857d; font-size:.9rem; text-align:center; }
+    .risk-mid { color:#9c6a1c; font-weight:800; }
+    .btn { display:inline-block; margin-top:10px; padding:10px 14px; border-radius:12px; background:#241f1c; color:#fff8f1; text-decoration:none; }
+    @media (max-width:680px) {
+      h1 { font-size:1.78rem; }
+      .dashboard,.grid-two,.grid-three,.stats,.market-strip,.alloc-grid,.mini-meters { grid-template-columns:1fr; }
+      .wrap { padding:12px 10px 64px; }
+      .hero,.section,.notice,.cta { padding:18px 14px; border-radius:22px; }
+      .gauge { width:220px; height:220px; }
+      .gauge-value { font-size:3.2rem; }
+      .countdown { text-align:left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="banner">─── 𝓡𝓲𝓬𝓱 𝓒𝓱𝓮𝓻𝓲𝓮 ───</div>
+      <div class="brand">
+        <div class="brand-title">市場晨報｜2026/04/29</div>
+        <div class="brand-sub">整合最新財經重點、川普動向、馬斯克消息、美股七巨頭、前一晚美股行情、台指夜盤與台股產業影響。</div>
+        <div class="brand-sub">這版先用今天晨報做成公開頁樣板，之後可以固定沿用成每日 stock-news。</div>
+      </div>
+      <span class="pill">✨ Rich Cherie x 每日市場晨報</span>
+      <h1>主線還是 AI，但市場已從全面樂觀切到高檔分化模式</h1>
+      <p class="lead">昨晚關鍵不是單純漲跌，而是半導體明顯回檔、七巨頭走勢分化、外資期貨部位仍偏空，代表今天台股更要看結構，不是只看指數表面。</p>
+      <div class="stats">
+        <div class="card"><strong>費半 -3.58%</strong><div class="muted">半導體壓力升高</div></div>
+        <div class="card"><strong>台指夜盤 -272</strong><div class="muted">收 39,461</div></div>
+        <div class="card"><strong>-45,869 口</strong><div class="muted">外資台指期淨空單</div></div>
+        <div class="card"><strong class="risk-mid">中</strong><div class="muted">系統性風險</div></div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="card allocation-panel">
+        <div class="alloc-grid">
+          <div>
+            <div class="tag">方舟運算持股配置儀表板</div>
+            <div class="gauge-wrap">
+              <div class="gauge">
+                <div class="gauge-inner">
+                  <div class="gauge-label">持股配置建議</div>
+                  <div class="gauge-value">63.7<span>%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="countdown">
+              <div class="t1">更新倒數</div>
+              <div class="t2">00:08</div>
+              <div class="muted">min sec</div>
+            </div>
+            <div class="mini-meters">
+              <div class="mini-meter"><div class="mini-title">部位儀表 1</div><div class="mini-value">待補</div></div>
+              <div class="mini-meter"><div class="mini-title">部位儀表 2</div><div class="mini-value">待補</div></div>
+              <div class="mini-meter"><div class="mini-title">部位儀表 3</div><div class="mini-value">待補</div></div>
+              <div class="mini-meter"><div class="mini-title">部位儀表 4</div><div class="mini-value">待補</div></div>
+              <div class="mini-meter"><div class="mini-title">部位儀表 5</div><div class="mini-value">待補</div></div>
+            </div>
+            <p class="muted" style="margin-top:12px;">這張配置圖目前可穩定辨識到主建議持股比重為 63.7%。底部五個子儀表因截圖裁切與解析度限制，這版先美化成儀表板占位，等你之後提供更完整截圖，我可以再補成精準欄位。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="tag">市場溫度儀表板</div>
+        <div class="market-strip">
+          <div class="card amber">
+            <div class="muted">VIX 指數</div>
+            <div class="market-number">待更新</div>
+            <div class="market-change">漲跌幅：待更新</div>
+          </div>
+          <div class="card amber">
+            <div class="muted">金價</div>
+            <div class="market-number">待更新</div>
+            <div class="market-change">漲跌幅：待更新</div>
+          </div>
+          <div class="card amber">
+            <div class="muted">油價</div>
+            <div class="market-number">待更新</div>
+            <div class="market-change">漲跌幅：待更新</div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:12px;">從明天開始，我會把 VIX、金價、油價與當時漲跌幅放在這裡，固定做成晨報首頁的置頂區。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>📌 今日晨報總結</h2>
+      <div class="grid-two">
+        <div class="card green">
+          <div class="tag">一句話先看</div>
+          <p class="bigline">AI 主線沒變，但市場短線開始挑公司、挑財報、挑指引，不再是看到 AI 就全面買。</p>
+          <p class="muted">今天台股開盤重點要看，半導體是否被費半拖累，以及 AI 伺服器、散熱、光通訊能不能相對抗跌。</p>
+        </div>
+        <div class="card amber">
+          <div class="tag">操作感受</div>
+          <p class="bigline">這種盤最怕用追價思維去碰高位股。</p>
+          <p class="muted">如果今天只是權值半導體弱，但 AI 供應鏈中的強勢次族群撐住，還是結構修正；若電子全面鬆動，風控要立刻拉高。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <h2>1. 最新財經新聞重點</h2>
+      <ul>
+        <li>美股主線仍是 AI 資本支出、雲端算力與半導體估值重估。</li>
+        <li>OpenAI 與 AWS 新合作消息持續發酵，代表 AI 算力競爭從單一雲端陣營，進一步擴大成多平台競爭。</li>
+        <li>Amazon 推出 AI 桌面助手型產品，市場開始關注 AI 從模型競賽走向企業工作流落地。</li>
+        <li>Nvidia 推出 12GB RTX 5070 Laptop GPU，高階記憶體、AI PC 與邊緣 AI 規格升級題材延續。</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>2. 川普動向</h2>
+      <div class="card">
+        <p class="bigline">市場現在看川普，不是在看政治熱鬧，而是在看關稅、對中政策與科技出口限制會不會再升級。</p>
+        <p class="muted">如果後續再強化保護主義或供應鏈限制，短線會壓電子權值估值，但中期反而有利非中供應鏈、AI 伺服器與美系資本支出鏈。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3. 馬斯克消息</h2>
+      <div class="card">
+        <p class="bigline">馬斯克與 OpenAI / Altman 訴訟持續，市場看到的是 AI 話語權、商業模式與控制權之爭。</p>
+        <p class="muted">這種事件雖不是直接財報數字，但會持續拉高市場對 AI 算力、生態系與基礎設施競爭的關注。Tesla 昨晚收 376.02，盤後 377.88，屬於偏弱後小幅止穩。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>4. 美股七巨頭與 CEO 願景</h2>
+      <div class="grid-two">
+        <div class="card">
+          <div class="tag">七巨頭近況</div>
+          <ul>
+            <li>Apple / Tim Cook：裝置生態、服務收入、裝置端 AI，收 270.71，盤後 269.50。</li>
+            <li>Microsoft / Satya Nadella：Copilot、Azure、企業 AI 變現，收 429.25，盤後 428.00。</li>
+            <li>Nvidia / Jensen Huang：算力、資料中心、主權 AI，收 213.17，盤後 212.62。</li>
+            <li>Amazon / Andy Jassy：AWS、AI 代理工具、企業工作流，收 259.70，盤後 259.67。</li>
+            <li>Alphabet / Sundar Pichai：搜尋、雲端、Gemini 商業化，收 349.78，盤後 350.17。</li>
+            <li>Meta / Mark Zuckerberg：開源 AI、生態擴張、廣告效率，收 671.34，盤後 671.77。</li>
+            <li>Tesla / Elon Musk：自駕、Robotaxi、Optimus，收 376.02，盤後 377.88。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">願景重點</div>
+          <p class="bigline">七巨頭共同目標沒變，還是在搶 AI 基礎設施、模型能力、裝置入口與企業客戶。</p>
+          <p class="muted">但市場已從單純買夢，轉成檢查這些願景能不能真的轉成訂單、毛利與資本支出效率。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>5. 前一晚美股行情解析</h2>
+      <div class="grid-three">
+        <div class="card">
+          <div class="tag">指數結構</div>
+          <p><strong>三大指數高檔震盪</strong></p>
+          <p class="muted">S&amp;P、Nasdaq、Dow 仍在高位附近整理，但盤中波動加大，顯示追價意願沒前幾天那麼一致。</p>
+        </div>
+        <div class="card">
+          <div class="tag">最重要風向</div>
+          <p><strong>費半大跌 3.58%</strong></p>
+          <p class="muted">費半收 10,035.58，跌 372.46，這是昨晚最值得重視的風向，代表半導體與 AI 晶片鏈短線出現明顯獲利了結。</p>
+        </div>
+        <div class="card">
+          <div class="tag">權值分化</div>
+          <p><strong>蘋果、微軟偏強，輝達、Meta、Tesla 偏弱</strong></p>
+          <p class="muted">這不是全面轉空，而是科技主線內部開始分化，資金在高位換股與降風險。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>6. 台指夜盤走勢解析</h2>
+      <div class="card amber">
+        <p class="bigline">台指近月夜盤收 39,461，跌 272 點，跌幅 0.68%。</p>
+        <ul>
+          <li>夜盤高點 39,854，低點 39,182，表示盤中賣壓不輕，不是單純小跌而已。</li>
+          <li>外資 4/28 台股期貨未平倉淨空單仍偏大，為 -45,869 口。</li>
+          <li>這代表今天台股如果開低，先看有沒有權值止穩與跌深收斂，不然短線情緒會偏保守。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>7. 影響因素拆解</h2>
+      <div class="grid-three">
+        <div class="card"><div class="tag">因素 1</div><p><strong>AI 供應鏈競爭升級</strong></p><p class="muted">OpenAI 與 AWS 合作，利多雲端、伺服器、交換器、光通訊、散熱，但市場開始挑真正有訂單與毛利的公司。</p></div>
+        <div class="card"><div class="tag">因素 2</div><p><strong>半導體估值壓力</strong></p><p class="muted">費半大跌會先壓台積電、IC 設計、CoWoS、ABF、先進封裝鏈的早盤情緒。</p></div>
+        <div class="card"><div class="tag">因素 3</div><p><strong>財報與展望敏感期</strong></p><p class="muted">Microsoft、Amazon、Alphabet、Meta 等後續財報與指引，會直接牽動台股 AI 伺服器鏈評價。</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>8. 系統性風險判斷</h2>
+      <div class="card green">
+        <p class="bigline">目前判定：中</p>
+        <p class="muted">不是流動性危機，也不是信用風暴，但高檔估值、半導體回檔、政策不確定性與外資期貨偏空，代表短線波動風險正在升高。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>9. 一句話市場主線結論</h2>
+      <div class="card green">
+        <p class="bigline">主線仍是 AI，但市場已從全面樂觀切換成「高檔分化、先看財報與指引」模式。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>A. 美股收盤後的盤後重點分析</h2>
+      <div class="grid-two">
+        <div class="card">
+          <div class="tag">盤後觀察</div>
+          <ul>
+            <li>七巨頭盤後沒有一致轉強，整體偏觀望整理。</li>
+            <li>Apple、Microsoft 盤後小跌，代表大型權值雖能撐盤，但追價力道有限。</li>
+            <li>Alphabet、Meta、Tesla 盤後小幅回穩，說明成長股情緒沒有全面崩，但也沒回到強攻。</li>
+            <li>Nvidia 盤後續弱，搭配費半重挫，今天台股半導體鏈開盤情緒要特別小心。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">核心解讀</div>
+          <p class="bigline">盤後真正的重點不是漲跌數字，而是市場正在等下一批法說與資本支出指引來定價。</p>
+          <p class="muted">也就是說，短線很容易變成「有題材沒追價，有財報才給評價」的盤。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>B. 台股開盤前，美股影響到的台灣產業新聞重點</h2>
+      <div class="grid-two">
+        <div class="card">
+          <div class="tag">國際事件 → 台股族群</div>
+          <ul>
+            <li>OpenAI 擴大 AWS 合作 → AI 伺服器、交換器、光通訊、散熱、PCB<br>可留意：廣達、緯創、技嘉、英業達、鴻海、奇鋐、雙鴻、金像電、台光電、智邦、貿聯-KY</li>
+            <li>費半重挫、Nvidia 轉弱 → 半導體、先進封裝、CoWoS、ABF、IC 設計<br>可留意：台積電、日月光投控、欣興、南電、景碩、世芯-KY、創意、力旺</li>
+            <li>Amazon 推企業 AI 工具 → 雲端伺服器、資料中心電源與散熱<br>可留意：廣達、緯穎、台達電、光寶科、奇鋐、雙鴻</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">延伸題材 → 台股族群</div>
+          <ul>
+            <li>Nvidia 新 GPU 與高階記憶體需求 → AI PC、記憶體、板卡、電競筆電、散熱<br>可留意：華碩、微星、技嘉、群聯、威剛、南亞科</li>
+            <li>馬斯克 / OpenAI 訴訟與 AI 話語權競爭升溫 → AI 伺服器、資料中心、電源、光模組<br>可留意：中磊、智邦、聯亞、上詮、華星光、台達電</li>
+          </ul>
+          <p class="muted">今天若半導體壓盤，但伺服器、散熱、光通訊抗跌，代表資金沒有撤出 AI，只是在主線內部換位置。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>今早操作一句補充</h2>
+      <div class="card green">
+        <p class="bigline">先看半導體會不會被費半拖累，再看 AI 伺服器鏈能不能相對抗跌。</p>
+        <p class="muted">如果只有權值半導體弱、伺服器與散熱撐住，盤勢還不算壞；若電子全面鬆動，就要把風控再往上拉。</p>
+      </div>
+    </section>
+
+    <div class="footer">本頁為 stock-news 樣板頁，之後可固定延伸為每日早上晨報公開頁。</div>
+  </main>
+</body>
+</html>
