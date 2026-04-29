@@ -22,12 +22,13 @@
     h1 { font-size:2.05rem; line-height:1.2; margin:16px 0 14px; }
     h2 { font-size:1.45rem; margin:0 0 12px; }
     .lead,.muted { color:var(--sub); }
-    .grid-two,.grid-three,.market-strip,.alloc-grid,.stock-grid { display:grid; gap:14px; }
+    .grid-two,.grid-three,.market-strip,.alloc-grid,.stock-grid,.inventory-grid { display:grid; gap:14px; }
     .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .market-strip { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .alloc-grid { grid-template-columns:1.05fr .95fr; }
     .stock-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .inventory-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:16px; min-width:0; }
     .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
     .allocation-panel { background:linear-gradient(135deg,#1b1b24 0%,#292334 48%,#37263d 100%); color:#fff; border:none; }
@@ -52,6 +53,8 @@
     .code { font-size:1.2rem; font-weight:900; }
     .name { color:var(--sub); margin-top:2px; }
     .price { font-size:1.8rem; font-weight:900; margin:10px 0 4px; }
+    .inv-top { font-size:1rem; font-weight:900; margin-bottom:8px; }
+    .inv-meta { color:var(--sub); font-size:.95rem; line-height:1.75; }
     ul { margin:10px 0 0; padding-left:1.2rem; color:var(--sub); }
     .ig-link { display:block; width:100%; text-decoration:none; color:inherit; background:linear-gradient(180deg,#fffdfa 0%,#fff8ef 100%); border:1px solid var(--line); border-radius:28px; padding:24px 22px; }
     .ig-top { text-align:center; color:#8c6b48; font-weight:900; font-size:1.1rem; letter-spacing:.08em; margin-bottom:18px; }
@@ -62,7 +65,7 @@
     .footer { margin-top:22px; text-align:center; color:#8f857d; font-size:.9rem; }
     @media (max-width:680px) {
       h1 { font-size:1.78rem; }
-      .grid-two,.grid-three,.market-strip,.alloc-grid,.stock-grid,.stat-list { grid-template-columns:1fr; }
+      .grid-two,.grid-three,.market-strip,.alloc-grid,.stock-grid,.stat-list,.inventory-grid { grid-template-columns:1fr; }
       .wrap { padding:12px 10px 64px; }
       .hero,.section,.dashboard { padding:18px 14px; border-radius:22px; }
       .gauge { width:220px; height:220px; }
@@ -142,6 +145,46 @@
         <div class="card"><div class="code">LRCX</div><div class="name">科林研發｜價值</div><div class="price">251.23</div><div class="change-down">-8.24 (-3.18%)</div><div class="muted">位階股數 1.42｜風控股數 55.45</div></div>
         <div class="card"><div class="code">NVDA</div><div class="name">輝達｜價值／升溫</div><div class="price">213.17</div><div class="change-down">-3.44 (-1.59%)</div><div class="muted">位階股數 0.73｜風控股數 65.36</div></div>
         <div class="card"><div class="code">SATL</div><div class="name">SATELLOGIC INC｜價值</div><div class="price">6.15</div><div class="change-down">-0.12 (-1.84%)</div><div class="muted">位階股數 131.88｜風控股數 2265.52</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>💼 你的美股實際庫存</h2>
+      <div class="grid-two">
+        <div class="card">
+          <div class="tag">總覽</div>
+          <p class="bigline">總預估現值 1,646,355 TWD，總成本 1,794,056 TWD，總預估損益 -147,701 TWD。</p>
+          <p class="muted">代表你目前整體美股庫存仍在回檔區，但部分核心股已開始出現分化，有的仍虧損，有的已經先翻正。</p>
+        </div>
+        <div class="card">
+          <div class="tag">結構觀察</div>
+          <ul>
+            <li>核心半導體：AMAT、AVGO、ASML、LRCX、MU、NVDA、TSM</li>
+            <li>高波動題材：FLY、SATL、LITE</li>
+            <li>槓桿 ETF：FLYT、GEVX、LITX、LRCU</li>
+            <li>其餘分散：GEV、LIN、MRVL、AMD</li>
+          </ul>
+        </div>
+      </div>
+      <div class="inventory-grid" style="margin-top:14px;">
+        <div class="card"><div class="inv-top">AMAT｜應用材料</div><div class="inv-meta">總股數：8.57326<br>成交均價：391.639820 USD</div><div class="price">-3,164</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">AMD｜超微半導體</div><div class="inv-meta">總股數：1<br>成交均價：318.250000 USD</div><div class="price">+113</div><div class="change-up">總預估損益</div></div>
+        <div class="card"><div class="inv-top">ASML｜艾司摩爾</div><div class="inv-meta">總股數：1<br>成交均價：1445.530000 USD</div><div class="price">-2,042</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">AVGO｜Broadcom</div><div class="inv-meta">總股數：2<br>成交均價：409.830000 USD</div><div class="price">-732</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">FLY｜Firefly Aerospace</div><div class="inv-meta">總股數：43<br>成交均價：41.531163 USD</div><div class="price">-10,011</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">FLYT｜Tradr 2X Long FLY Daily ETF</div><div class="inv-meta">總股數：570<br>成交均價：24.400702 USD</div><div class="price">-72,063</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">GEV｜GE Vernova</div><div class="inv-meta">總股數：4<br>成交均價：1109.887500 USD</div><div class="price">-2,780</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">GEVX｜Tradr 2X Long GEV Daily ETF</div><div class="inv-meta">總股數：25<br>成交均價：78.820000 USD</div><div class="price">-793</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">LIN｜Linde PLC</div><div class="inv-meta">總股數：2<br>成交均價：494.895000 USD</div><div class="price">+940</div><div class="change-up">總預估損益</div></div>
+        <div class="card"><div class="inv-top">LITE｜Lumentum Holdings</div><div class="inv-meta">總股數：5.30106<br>成交均價：852.965256 USD</div><div class="price">-10,522</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">LITX｜Tradr 2X Long LITE Daily ETF</div><div class="inv-meta">總股數：230<br>成交均價：41.091304 USD</div><div class="price">-45,441</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">LRCU｜Tradr 2X Long LRCX Daily ETF</div><div class="inv-meta">總股數：98<br>成交均價：39.530612 USD</div><div class="price">+6,877</div><div class="change-up">總預估損益</div></div>
+        <div class="card"><div class="inv-top">LRCX｜科林研發</div><div class="inv-meta">總股數：8<br>成交均價：260.665000 USD</div><div class="price">-2,468</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">MRVL｜Marvell Technology</div><div class="inv-meta">總股數：1<br>成交均價：150.120000 USD</div><div class="price">+77</div><div class="change-up">總預估損益</div></div>
+        <div class="card"><div class="inv-top">MU｜美光</div><div class="inv-meta">總股數：1<br>成交均價：500.400000 USD</div><div class="price">+55</div><div class="change-up">總預估損益</div></div>
+        <div class="card"><div class="inv-top">NVDA｜輝達</div><div class="inv-meta">總股數：2<br>成交均價：209.170000 USD</div><div class="price">+199</div><div class="change-up">總預估損益</div></div>
+        <div class="card"><div class="inv-top">SATL｜Satellogic Inc</div><div class="inv-meta">總股數：640<br>成交均價：6.744219 USD</div><div class="price">-12,115</div><div class="change-down">總預估損益</div></div>
+        <div class="card"><div class="inv-top">TSM｜台積電 ADR</div><div class="inv-meta">總股數：7.03865<br>成交均價：362.546795 USD</div><div class="price">+6,169</div><div class="change-up">總預估損益</div></div>
       </div>
     </section>
 
