@@ -29,11 +29,27 @@
     h2 { font-size:1.45rem; margin:0 0 12px; }
     .lead { color:var(--sub); margin:0; }
     .pill { display:inline-block; padding:7px 14px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--gold); font-size:.83rem; font-weight:800; }
-    .grid-two,.grid-three,.stock-grid { display:grid; gap:14px; }
+    .grid-two,.grid-three,.stock-grid,.alloc-grid,.mini-stats { display:grid; gap:14px; }
     .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .stock-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .alloc-grid { grid-template-columns:1.05fr .95fr; }
+    .mini-stats { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:16px; }
+    .allocation-panel { background:linear-gradient(135deg,#1b1b24 0%,#292334 48%,#37263d 100%); color:#fff; border:none; box-shadow:0 16px 34px rgba(48,29,34,.22); }
+    .allocation-panel .muted { color:#d8d1df; }
+    .gauge-wrap { display:flex; align-items:center; justify-content:center; padding:10px 0 4px; }
+    .gauge { width:250px; height:250px; border-radius:50%; position:relative; background:conic-gradient(#f1c85c 0 227.52deg,#8b8fa6 227.52deg 360deg); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 28px rgba(0,0,0,.22), inset 0 0 0 10px rgba(255,255,255,.04); }
+    .gauge::before { content:""; position:absolute; inset:18px; border-radius:50%; background:radial-gradient(circle at 50% 35%,#2b2a33 0%,#17181d 65%,#111318 100%); }
+    .gauge-inner { position:relative; z-index:1; text-align:center; }
+    .gauge-label { font-size:1.05rem; font-weight:800; }
+    .gauge-value { font-size:3.8rem; font-weight:900; line-height:1; margin-top:10px; }
+    .gauge-value span { font-size:2rem; }
+    .countdown { text-align:center; margin-top:8px; }
+    .countdown .t1 { color:#d8d1df; font-weight:800; }
+    .countdown .t2 { font-size:2rem; font-weight:900; }
+    .stat-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:12px; }
+    .stat-box strong { display:block; font-size:1.35rem; color:#f1c85c; margin-top:4px; }
     .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
     .code { font-size:1.2rem; font-weight:900; }
     .name { color:var(--sub); margin-top:2px; }
@@ -53,7 +69,7 @@
     .footer { margin-top:22px; text-align:center; color:#8f857d; font-size:.9rem; }
     @media (max-width:680px) {
       h1 { font-size:1.78rem; }
-      .grid-two,.grid-three,.stock-grid { grid-template-columns:1fr; }
+      .grid-two,.grid-three,.stock-grid,.alloc-grid,.mini-stats { grid-template-columns:1fr; }
       .wrap { padding:12px 10px 64px; }
       .hero,.section { padding:18px 14px; border-radius:22px; }
     }
@@ -79,6 +95,42 @@
     </section>
 
     <section class="section">
+      <h2>🧮 方舟運算持股配置摘要</h2>
+      <div class="alloc-grid">
+        <div class="card allocation-panel">
+          <div class="tag">持股配置建議</div>
+          <div class="gauge-wrap">
+            <div class="gauge">
+              <div class="gauge-inner">
+                <div class="gauge-label">持股配置建議</div>
+                <div class="gauge-value">63.2<span>%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="countdown">
+            <div class="t1">更新倒數</div>
+            <div class="t2">09:35</div>
+            <div class="muted">min sec</div>
+          </div>
+        </div>
+        <div class="card allocation-panel">
+          <div class="tag">資金與布局</div>
+          <div class="mini-stats">
+            <div class="stat-box"><div class="muted">台股庫存</div><strong>760,000</strong></div>
+            <div class="stat-box"><div class="muted">美股庫存</div><strong>1,644,825</strong></div>
+            <div class="stat-box"><div class="muted">資金總額</div><strong>7,218,413</strong></div>
+            <div class="stat-box"><div class="muted">現在持股</div><strong>2,404,825</strong></div>
+            <div class="stat-box"><div class="muted">現在持股比</div><strong>24.99%</strong></div>
+            <div class="stat-box"><div class="muted">建議持股</div><strong>6,081,886</strong></div>
+            <div class="stat-box"><div class="muted">建議持股比</div><strong>63.2%</strong></div>
+            <div class="stat-box"><div class="muted">建議閒錢</div><strong>3,541,352</strong></div>
+            <div class="stat-box"><div class="muted">建議布局金額</div><strong>3,677,061</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>📌 今晚先看什麼</h2>
       <div class="grid-three">
         <div class="card"><div class="tag">主線</div><p class="bigline">AI 主線沒變，但高估值半導體鏈在做壓縮。</p></div>
@@ -88,16 +140,19 @@
     </section>
 
     <section class="section">
-      <h2>🧭 7 檔追蹤標的盤前整理</h2>
+      <h2>🧭 追蹤標的盤前整理</h2>
       <div class="stock-grid">
-        <div class="card"><div class="code">NVDA</div><div class="name">NVIDIA</div><div class="price">213.27</div><div class="change-up">盤前 +0.05%</div><div class="muted">昨收 213.17，前一晚 -1.59%</div></div>
-        <div class="card"><div class="code">AVGO</div><div class="name">Broadcom</div><div class="price">401.80</div><div class="change-up">盤前 +0.49%</div><div class="muted">昨收 399.83，前一晚 -4.39%</div></div>
-        <div class="card"><div class="code">MU</div><div class="name">Micron</div><div class="price">528.27</div><div class="change-up">盤前 +4.76%</div><div class="muted">昨收 504.29，前一晚 -3.86%</div></div>
-        <div class="card"><div class="code">AMAT</div><div class="name">Applied Materials</div><div class="price">382.50</div><div class="change-up">盤前 +0.36%</div><div class="muted">昨收 381.11，前一晚 -5.87%</div></div>
-        <div class="card"><div class="code">LRCX</div><div class="name">Lam Research</div><div class="price">252.00</div><div class="change-up">盤前 +0.31%</div><div class="muted">昨收 251.23，前一晚 -3.18%</div></div>
-        <div class="card"><div class="code">KLAC</div><div class="name">KLA</div><div class="price">1,816.00</div><div class="change-up">盤前 +0.39%</div><div class="muted">昨收 1,808.97，前一晚 -4.79%，今日盤後財報</div></div>
-        <div class="card"><div class="code">LITE</div><div class="name">Lumentum</div><div class="price">811.69</div><div class="change-up">盤前 +2.57%</div><div class="muted">昨收 791.37，前一晚 -7.95%</div></div>
+        <div class="card"><div class="code">NVDA</div><div class="name">輝達｜價值／升溫</div><div class="price">213.17</div><div class="change-down">-3.44 (-1.59%)</div><div class="muted">位階股數 0.73｜風控股數 65.36</div></div>
+        <div class="card"><div class="code">AVGO</div><div class="name">博通｜價值</div><div class="price">399.83</div><div class="change-down">-18.37 (-4.39%)</div><div class="muted">位階股數 0.56｜風控股數 34.84</div></div>
+        <div class="card"><div class="code">AMAT</div><div class="name">應用材料｜價值</div><div class="price">381.11</div><div class="change-down">-23.75 (-5.87%)</div><div class="muted">位階股數 0.72｜風控股數 36.55</div></div>
+        <div class="card"><div class="code">KLAC</div><div class="name">科磊｜價值</div><div class="price">1,808.97</div><div class="change-down">-91.03 (-4.79%)</div><div class="muted">位階股數 0.11｜風控股數 7.7</div></div>
+        <div class="card"><div class="code">LRCX</div><div class="name">科林研發｜價值</div><div class="price">251.23</div><div class="change-down">-8.24 (-3.18%)</div><div class="muted">位階股數 1.42｜風控股數 55.45</div></div>
+        <div class="card"><div class="code">FLY</div><div class="name">FIREFLY AEROSPACE｜價值</div><div class="price">34.22</div><div class="change-down">-0.3 (-0.85%)</div><div class="muted">位階股數 16.62｜風控股數 407.21</div></div>
+        <div class="card"><div class="code">GEV</div><div class="name">GE VERNOVA INC｜價值</div><div class="price">1,088.93</div><div class="change-down">-31.3 (-2.79%)</div><div class="muted">位階股數 0.18｜風控股數 12.79</div></div>
+        <div class="card"><div class="code">LIN</div><div class="name">林德集團｜價值</div><div class="price">510.29</div><div class="change-down">-0.46 (-0.09%)</div><div class="muted">位階股數 0.34｜風控股數 27.3</div></div>
+        <div class="card"><div class="code">SATL</div><div class="name">SATELLOGIC INC｜價值</div><div class="price">6.15</div><div class="change-down">-0.12 (-1.84%)</div><div class="muted">位階股數 131.88｜風控股數 2265.52</div></div>
       </div>
+      <p class="muted" style="margin-top:12px;">你原本指定的 NVDA、AVGO、MU、AMAT、LRCX、KLAC、LITE 我會持續追蹤；這次依你剛貼的方舟自選圖，也把畫面中可辨識的 FLY、GEV、LIN、SATL 一起整理進來。MU、LITE 這輪新圖未出現，所以先保留在新聞判讀，不放進這張方舟清單卡。</p>
     </section>
 
     <section class="section">
@@ -106,17 +161,17 @@
         <div class="card">
           <div class="tag">偏強觀察</div>
           <ul>
-            <li>MU 盤前反彈最明顯，代表記憶體與高頻寬記憶體題材還是有資金接。</li>
-            <li>LITE 盤前回彈，代表光通訊雖然波動大，但題材沒有整條斷掉。</li>
-            <li>NVDA 盤前小漲，顯示核心 AI 龍頭至少沒有繼續被追殺。</li>
+            <li>NVDA 雖列入升溫，但仍在主線核心，代表不是邏輯消失，而是位階高、要控節奏。</li>
+            <li>LRCX 與 AMAT 雖下跌，但都仍在價值區，偏向修正中的設備鏈觀察名單。</li>
+            <li>GEV、LIN 這類非純晶片股，反而能幫你看主線以外的資金分散方向。</li>
           </ul>
         </div>
         <div class="card">
           <div class="tag">偏弱觀察</div>
           <ul>
-            <li>AVGO、AMAT、KLAC、LRCX 前一晚跌幅都不小，說明設備與高估值半導體鏈還在修正段。</li>
-            <li>KLAC 今晚要看財報後市場買不買單，這會影響設備鏈情緒。</li>
-            <li>如果盤前反彈開高走低，就代表這波還是先以降溫整理看待。</li>
+            <li>AVGO、AMAT、KLAC、LRCX 跌幅都不小，說明設備與高估值半導體鏈還在修正段。</li>
+            <li>NVDA 已進升溫區，代表情緒熱度高，續漲不是不行，但風險也同步放大。</li>
+            <li>如果今晚反彈開高走低，就代表這波仍先以降溫整理看待，不適合把盤前小反彈直接解讀成翻多。</li>
           </ul>
         </div>
       </div>
