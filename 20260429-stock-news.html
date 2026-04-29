@@ -39,7 +39,7 @@
     .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .stats { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:16px; }
     .market-strip { grid-template-columns:repeat(3,minmax(0,1fr)); }
-    .alloc-grid { grid-template-columns:1.1fr .9fr; }
+    .alloc-grid { grid-template-columns:1fr; }
     .mini-meters { grid-template-columns:repeat(5,minmax(0,1fr)); }
     .list-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .verify-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
@@ -80,7 +80,7 @@
     .gauge-label { font-size:1.1rem; font-weight:800; letter-spacing:.03em; }
     .gauge-value { font-size:4rem; font-weight:900; line-height:1; margin-top:10px; }
     .gauge-value span { font-size:2rem; }
-    .countdown { text-align:right; }
+    .countdown { text-align:center; margin-top:6px; }
     .countdown .t1 { color:#d8d1df; font-weight:800; }
     .countdown .t2 { font-size:2rem; font-weight:900; line-height:1.1; margin-top:4px; }
     .mini-meter { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:10px 8px; text-align:center; }
@@ -137,21 +137,11 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
               <div class="countdown">
                 <div class="t1">更新倒數</div>
                 <div class="t2">00:08</div>
                 <div class="muted">min sec</div>
               </div>
-              <div class="mini-meters">
-                <div class="mini-meter"><div class="mini-title">配置主比重</div><div class="mini-value">63.7%</div></div>
-                <div class="mini-meter"><div class="mini-title">狀態</div><div class="mini-value">可布局</div></div>
-                <div class="mini-meter"><div class="mini-title">ETF 清單</div><div class="mini-value">10 檔</div></div>
-                <div class="mini-meter"><div class="mini-title">個股清單</div><div class="mini-value">30 檔</div></div>
-                <div class="mini-meter"><div class="mini-title">升溫標的</div><div class="mini-value">8 檔</div></div>
-              </div>
-              <p class="muted" style="margin-top:12px;">你給的配置圖我已經先做成清楚版儀表板。底部更細的原始小儀表若之後提供更完整截圖，我可以再做成逐欄精準版。</p>
             </div>
           </div>
         </div>
