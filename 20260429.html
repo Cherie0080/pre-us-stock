@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rich Cherie｜2026/04/29 美股預習</title>
+  <meta name="description" content="Rich Cherie 2026/04/29 美股預習，整理 NVDA、AVGO、MU、AMAT、LRCX、KLAC、LITE 的盤前狀態與今晚主線判讀。" />
+  <style>
+    :root {
+      --bg:#f7f3ec;
+      --paper:#fffaf4;
+      --card:#ffffff;
+      --text:#171513;
+      --sub:#726a62;
+      --gold:#b58a55;
+      --gold-soft:#f2e2cf;
+      --line:#eadbca;
+      --green:#edf7ef;
+      --amber:#fff6e8;
+      --rose:#fff4f0;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif; color:var(--text); background:linear-gradient(180deg,#fdf9f3 0%,#f7f3ec 100%); line-height:1.8; }
+    .wrap { max-width:1080px; margin:0 auto; padding:18px 14px 80px; }
+    .hero,.section { background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:22px 18px; box-shadow:0 14px 32px rgba(80,56,30,.08); }
+    .section { margin-top:18px; }
+    .banner { text-align:center; padding:10px 14px; border-radius:999px; background:linear-gradient(135deg,#fff8ef 0%,#f2dfc7 100%); border:1px solid var(--line); color:#9a6b3d; font-weight:800; letter-spacing:.08em; margin-bottom:14px; }
+    h1 { font-size:2.1rem; line-height:1.2; margin:16px 0 12px; }
+    h2 { font-size:1.45rem; margin:0 0 12px; }
+    .lead { color:var(--sub); margin:0; }
+    .pill { display:inline-block; padding:7px 14px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--gold); font-size:.83rem; font-weight:800; }
+    .grid-two,.grid-three,.stock-grid { display:grid; gap:14px; }
+    .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .stock-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:16px; }
+    .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
+    .code { font-size:1.2rem; font-weight:900; }
+    .name { color:var(--sub); margin-top:2px; }
+    .price { font-size:1.8rem; font-weight:900; margin:10px 0 4px; }
+    .change-down { color:#b14b3d; font-weight:900; }
+    .change-up { color:#2a8a55; font-weight:900; }
+    .muted { color:var(--sub); }
+    .bigline { font-size:1.08rem; font-weight:800; line-height:1.6; margin:0 0 10px; }
+    ul { margin:10px 0 0; padding-left:1.2rem; color:var(--sub); }
+    .ig-card { display:flex; justify-content:center; margin-top:18px; }
+    .ig-link { display:block; width:100%; text-decoration:none; color:inherit; background:linear-gradient(180deg,#fffdfa 0%,#fff8ef 100%); border:1px solid var(--line); border-radius:28px; padding:24px 22px; }
+    .ig-top { text-align:center; color:#8c6b48; font-weight:900; font-size:1.1rem; letter-spacing:.08em; margin-bottom:18px; }
+    .ig-name { font-size:2rem; font-weight:900; color:#877763; margin-bottom:12px; }
+    .ig-tags { color:#6d655c; font-size:1.05rem; margin-bottom:18px; line-height:1.8; }
+    .ig-desc { color:#5f5952; font-size:1.25rem; font-weight:500; margin-bottom:18px; }
+    .ig-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 24px; border-radius:999px; border:1px solid var(--line); background:#fff; color:#7b5a34; font-size:1.15rem; font-weight:900; }
+    .footer { margin-top:22px; text-align:center; color:#8f857d; font-size:.9rem; }
+    @media (max-width:680px) {
+      h1 { font-size:1.78rem; }
+      .grid-two,.grid-three,.stock-grid { grid-template-columns:1fr; }
+      .wrap { padding:12px 10px 64px; }
+      .hero,.section { padding:18px 14px; border-radius:22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="banner">─── 𝓡𝓲𝓬𝓱 𝓒𝓱𝓮𝓻𝓲𝓮 ───</div>
+      <div class="pill">✨ 2026/04/29 美股預習</div>
+      <h1>今晚先看半導體修正能不能止穩，重點不是抄底，是看主線有沒有重新收斂回核心</h1>
+      <p class="lead">今天這頁先聚焦你指定的 7 檔追蹤標的。從盤前數據來看，昨晚半導體設備與高速傳輸鏈跌幅偏大，但盤前已有局部回穩，代表今晚更像高檔震盪後的結構篩選，不是主線直接崩掉。</p>
+    </section>
+
+    <section class="ig-card">
+      <a class="ig-link" href="https://www.instagram.com/cherie.estilista/" target="_blank" rel="noopener noreferrer">
+        <div class="ig-top">──── Rich Cherie ────</div>
+        <div class="ig-name">鑫彤女王 Xintong Queen</div>
+        <div class="ig-tags">■ 房產投資　■ 理財實戰　■ 美業領航</div>
+        <div class="ig-desc">美股預習 × AI 主線 × 每日盤前觀察</div>
+        <div class="ig-btn">Instagram｜cherie.estilista</div>
+      </a>
+    </section>
+
+    <section class="section">
+      <h2>📌 今晚先看什麼</h2>
+      <div class="grid-three">
+        <div class="card"><div class="tag">主線</div><p class="bigline">AI 主線沒變，但高估值半導體鏈在做壓縮。</p></div>
+        <div class="card"><div class="tag">節奏</div><p class="bigline">盤前反彈不等於翻強，先看跌深後有沒有資金回補核心龍頭。</p></div>
+        <div class="card"><div class="tag">策略</div><p class="bigline">今晚重點不是全面追，而是分辨誰是修正、誰是轉弱。</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🧭 7 檔追蹤標的盤前整理</h2>
+      <div class="stock-grid">
+        <div class="card"><div class="code">NVDA</div><div class="name">NVIDIA</div><div class="price">213.27</div><div class="change-up">盤前 +0.05%</div><div class="muted">昨收 213.17，前一晚 -1.59%</div></div>
+        <div class="card"><div class="code">AVGO</div><div class="name">Broadcom</div><div class="price">401.80</div><div class="change-up">盤前 +0.49%</div><div class="muted">昨收 399.83，前一晚 -4.39%</div></div>
+        <div class="card"><div class="code">MU</div><div class="name">Micron</div><div class="price">528.27</div><div class="change-up">盤前 +4.76%</div><div class="muted">昨收 504.29，前一晚 -3.86%</div></div>
+        <div class="card"><div class="code">AMAT</div><div class="name">Applied Materials</div><div class="price">382.50</div><div class="change-up">盤前 +0.36%</div><div class="muted">昨收 381.11，前一晚 -5.87%</div></div>
+        <div class="card"><div class="code">LRCX</div><div class="name">Lam Research</div><div class="price">252.00</div><div class="change-up">盤前 +0.31%</div><div class="muted">昨收 251.23，前一晚 -3.18%</div></div>
+        <div class="card"><div class="code">KLAC</div><div class="name">KLA</div><div class="price">1,816.00</div><div class="change-up">盤前 +0.39%</div><div class="muted">昨收 1,808.97，前一晚 -4.79%，今日盤後財報</div></div>
+        <div class="card"><div class="code">LITE</div><div class="name">Lumentum</div><div class="price">811.69</div><div class="change-up">盤前 +2.57%</div><div class="muted">昨收 791.37，前一晚 -7.95%</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🔍 個股重點判讀</h2>
+      <div class="grid-two">
+        <div class="card">
+          <div class="tag">偏強觀察</div>
+          <ul>
+            <li>MU 盤前反彈最明顯，代表記憶體與高頻寬記憶體題材還是有資金接。</li>
+            <li>LITE 盤前回彈，代表光通訊雖然波動大，但題材沒有整條斷掉。</li>
+            <li>NVDA 盤前小漲，顯示核心 AI 龍頭至少沒有繼續被追殺。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">偏弱觀察</div>
+          <ul>
+            <li>AVGO、AMAT、KLAC、LRCX 前一晚跌幅都不小，說明設備與高估值半導體鏈還在修正段。</li>
+            <li>KLAC 今晚要看財報後市場買不買單，這會影響設備鏈情緒。</li>
+            <li>如果盤前反彈開高走低，就代表這波還是先以降溫整理看待。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🧠 今晚主線整理</h2>
+      <div class="grid-two">
+        <div class="card green">
+          <div class="tag">有利因素</div>
+          <ul>
+            <li>盤前多數標的止穩，沒有延續全面性拋售。</li>
+            <li>AI 核心龍頭 NVDA 仍守在高位附近。</li>
+            <li>MU、LITE 這種高波動股先反彈，代表市場不是完全撤出成長股。</li>
+          </ul>
+        </div>
+        <div class="card amber">
+          <div class="tag">風險因素</div>
+          <ul>
+            <li>昨晚半導體設備股跌幅深，說明高估值族群還在重估。</li>
+            <li>如果今晚 FOMC 觀望情緒升高，科技股容易再被壓一次。</li>
+            <li>KLAC 財報若低於預期，設備鏈可能再被放大檢視。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>📈 一句話結論</h2>
+      <div class="card">
+        <p class="bigline">今晚比較像 AI 半導體主線高檔震盪後的二次篩選，先看核心龍頭能不能穩、設備鏈能不能止跌，不是看到盤前回彈就直接當成全面轉強。</p>
+      </div>
+    </section>
+
+    <div class="footer">公開網址將收錄於 Rich Cherie 美股預習總站，後續每日新頁持續沿用同樣結構。</div>
+  </main>
+</body>
+</html>
