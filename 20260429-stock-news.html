@@ -30,8 +30,23 @@
     .brand { background:rgba(255,255,255,.78); border:1px solid var(--line); border-radius:24px; padding:16px; margin-bottom:16px; }
     .hero-cover { margin-top:18px; border-radius:26px; overflow:hidden; border:1px solid var(--line); box-shadow:0 18px 36px rgba(80,56,30,.12); background:#fff; }
     .hero-cover img { display:block; width:100%; height:auto; }
-    .brand-title { font-size:1.15rem; font-weight:800; margin-bottom:8px; }
+    .brand-title { font-size:1.15rem; font-weight:800; margin-bottom:0; }
     .brand-sub { color:var(--sub); margin-bottom:6px; }
+    .ig-card { display:flex; justify-content:center; margin-top:18px; }
+    .ig-link {
+      display:block; width:100%; max-width:760px; text-decoration:none; color:inherit;
+      background:linear-gradient(180deg,#fffdfa 0%,#fff8ef 100%);
+      border:1px solid var(--line); border-radius:28px; padding:24px 22px;
+      box-shadow:0 14px 32px rgba(112,84,52,.10);
+    }
+    .ig-top { text-align:center; color:#8c6b48; font-weight:900; font-size:1.1rem; letter-spacing:.08em; margin-bottom:18px; }
+    .ig-name { font-size:2rem; font-weight:900; color:#877763; margin-bottom:12px; }
+    .ig-tags { color:#6d655c; font-size:1.05rem; margin-bottom:18px; line-height:1.8; }
+    .ig-desc { color:#5f5952; font-size:1.25rem; font-weight:500; margin-bottom:18px; }
+    .ig-btn {
+      display:inline-flex; align-items:center; gap:10px; padding:16px 24px; border-radius:999px;
+      border:1px solid var(--line); background:#fff; color:#7b5a34; font-size:1.15rem; font-weight:900;
+    }
     .pill { display:inline-block; padding:7px 14px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--gold); font-size:.83rem; font-weight:800; letter-spacing:.06em; }
     h1 { font-size:2.05rem; line-height:1.2; margin:16px 0 14px; letter-spacing:-.03em; }
     h2 { font-size:1.45rem; margin:0 0 12px; }
@@ -105,8 +120,6 @@
       <div class="banner">─── 𝓡𝓲𝓬𝓱 𝓒𝓱𝓮𝓻𝓲𝓮 ───</div>
       <div class="brand">
         <div class="brand-title">市場晨報｜2026/04/29</div>
-        <div class="brand-sub">整合方舟運算持股配置、ETF 與個股價值區、VIX / 金價 / 油價、以及國際新聞交叉驗證。</div>
-        <div class="brand-sub">這版已更新成你要的每日獨立頁 stock-news 風格。</div>
       </div>
       <span class="pill">✨ Rich Cherie x 每日市場晨報</span>
       <h1>主線還是 AI，但市場已從全面樂觀切到高檔分化模式</h1>
@@ -126,6 +139,16 @@
         <div class="chip">策略：先看財報與指引</div>
         <div class="chip">風控：略升</div>
       </div>
+    </section>
+
+    <section class="ig-card">
+      <a class="ig-link" href="https://www.instagram.com/cherie.estilista/" target="_blank" rel="noopener noreferrer">
+        <div class="ig-top">──── Rich Cherie ────</div>
+        <div class="ig-name">鑫彤女王 Xintong Queen</div>
+        <div class="ig-tags">■ 房產投資　■ 理財實戰　■ 美業領航</div>
+        <div class="ig-desc">美股預習 × AI 主線 × 每日盤前觀察</div>
+        <div class="ig-btn">Instagram｜cherie.estilista</div>
+      </a>
     </section>
 
     <section class="dashboard">
