@@ -29,9 +29,10 @@
     h2 { font-size:1.45rem; margin:0 0 12px; }
     .lead { color:var(--sub); margin:0; }
     .pill { display:inline-block; padding:7px 14px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--gold); font-size:.83rem; font-weight:800; }
-    .grid-two,.grid-three,.stock-grid,.alloc-grid,.mini-stats { display:grid; gap:14px; }
+    .grid-two,.grid-three,.stock-grid,.alloc-grid,.mini-stats,.dashboard-grid { display:grid; gap:14px; }
     .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .dashboard-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .stock-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .alloc-grid { grid-template-columns:1.05fr .95fr; }
     .mini-stats { grid-template-columns:repeat(3,minmax(0,1fr)); }
@@ -51,6 +52,12 @@
     .stat-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:12px; }
     .stat-box strong { display:block; font-size:1.35rem; color:#f1c85c; margin-top:4px; }
     .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
+    .dash-card { background:linear-gradient(180deg,#fffdfa 0%,#fff6ec 100%); border:1px solid var(--line); border-radius:24px; padding:18px; }
+    .dash-top { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; margin-bottom:10px; }
+    .dash-score { min-width:92px; text-align:center; border-radius:18px; padding:10px 8px; background:#fff; border:1px solid var(--line); }
+    .dash-score .label { color:var(--sub); font-size:.78rem; font-weight:700; }
+    .dash-score strong { display:block; font-size:1.45rem; margin-top:4px; color:#8a6135; }
+    .dash-list { margin:8px 0 0; padding-left:1.1rem; color:var(--sub); }
     .code { font-size:1.2rem; font-weight:900; }
     .name { color:var(--sub); margin-top:2px; }
     .price { font-size:1.8rem; font-weight:900; margin:10px 0 4px; }
@@ -171,6 +178,76 @@
             <li>升溫區不是不能碰，而是代表位置偏熱，節奏上更要防追高。</li>
             <li>GOOG 進升溫區，表示大型科技權值股也開始有熱度擴散，不再只有 AI 晶片獨強。</li>
             <li>MU 同時有價值區與升溫感，代表它是今晚最需要看盤中續強或轉弱訊號的標的之一。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>📊 財報儀表板</h2>
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <div class="dash-top">
+            <div>
+              <div class="tag">AMAT｜設備鏈風向球</div>
+              <div class="code">AMAT</div>
+              <div class="name">應用材料</div>
+            </div>
+            <div class="dash-score"><div class="label">機構熱度</div><strong>78</strong></div>
+          </div>
+          <ul class="dash-list">
+            <li>營收焦點：市場已開始關注下一次財報，外部資料指向 5/14 左右為重要觀察點。</li>
+            <li>財報解讀：重點不是單季有沒有 beat，而是設備支出週期有沒有維持。</li>
+            <li>機構看法：偏審慎樂觀，若展望穩，設備鏈情緒有機會一起修復。</li>
+            <li>今晚重點：AMAT 若止穩，對整體設備股會是正向訊號。</li>
+          </ul>
+        </div>
+        <div class="dash-card">
+          <div class="dash-top">
+            <div>
+              <div class="tag">AVGO｜AI 強者代表</div>
+              <div class="code">AVGO</div>
+              <div class="name">博通</div>
+            </div>
+            <div class="dash-score"><div class="label">機構熱度</div><strong>88</strong></div>
+          </div>
+          <ul class="dash-list">
+            <li>營收焦點：前次市場核心在 AI 相關營收翻倍，代表成長敘事很強。</li>
+            <li>財報解讀：市場不只看 beat，而是看 AI 成長能不能續航。</li>
+            <li>機構看法：偏多，但也代表高檔時容易被放大檢視。</li>
+            <li>今晚重點：若半導體轉強，AVGO 通常是最容易被資金回補的核心標的之一。</li>
+          </ul>
+        </div>
+        <div class="dash-card">
+          <div class="dash-top">
+            <div>
+              <div class="tag">MU｜高彈性記憶體股</div>
+              <div class="code">MU</div>
+              <div class="name">美光</div>
+            </div>
+            <div class="dash-score"><div class="label">機構熱度</div><strong>72</strong></div>
+          </div>
+          <ul class="dash-list">
+            <li>營收焦點：前次財報主軸是營收大幅成長、記憶體需求強。</li>
+            <li>財報解讀：財報好時爆發力很強，但情緒熱時也容易快速升溫。</li>
+            <li>機構看法：偏看好，但分歧比 AVGO 大，因為記憶體循環波動更明顯。</li>
+            <li>今晚重點：MU 同時有價值區與升溫特徵，適合看節奏，不適合追高。</li>
+          </ul>
+        </div>
+        <div class="dash-card">
+          <div class="dash-top">
+            <div>
+              <div class="tag">LITE｜光通訊觀察股</div>
+              <div class="code">LITE</div>
+              <div class="name">Lumentum</div>
+            </div>
+            <div class="dash-score"><div class="label">機構熱度</div><strong>65</strong></div>
+          </div>
+          <ul class="dash-list">
+            <li>營收焦點：已有前次 earnings call 與市場預期資料，焦點在光通訊需求與獲利表現。</li>
+            <li>財報解讀：這種高波動股，財報對股價的影響通常比大型權值股更直接。</li>
+            <li>機構看法：偏事件驅動型，不像大型權值股那麼一致。</li>
+            <li>今晚重點：還在價值區，但比較適合搭配風險控管，不宜重壓。</li>
           </ul>
         </div>
       </div>
