@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rich Cherie｜2026/04/30 美股預習</title>
+  <meta name="description" content="Rich Cherie 2026/04/30 美股預習，整合方舟持股水位、美股價值區與升溫區，以及今晚主線判讀。" />
+  <style>
+    :root {
+      --bg:#f7f3ec;
+      --paper:#fffaf4;
+      --card:#ffffff;
+      --text:#171513;
+      --sub:#726a62;
+      --gold:#b58a55;
+      --gold-soft:#f2e2cf;
+      --line:#eadbca;
+      --green:#edf7ef;
+      --amber:#fff6e8;
+      --rose:#fff4f0;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif; color:var(--text); background:linear-gradient(180deg,#fdf9f3 0%,#f7f3ec 100%); line-height:1.8; }
+    .wrap { max-width:1080px; margin:0 auto; padding:18px 14px 80px; }
+    .hero,.section { background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:22px 18px; box-shadow:0 14px 32px rgba(80,56,30,.08); }
+    .section { margin-top:18px; }
+    .banner { text-align:center; padding:10px 14px; border-radius:999px; background:linear-gradient(135deg,#fff8ef 0%,#f2dfc7 100%); border:1px solid var(--line); color:#9a6b3d; font-weight:800; letter-spacing:.08em; margin-bottom:14px; }
+    h1 { font-size:2.1rem; line-height:1.2; margin:16px 0 12px; }
+    h2 { font-size:1.45rem; margin:0 0 12px; }
+    .lead { color:var(--sub); margin:0; }
+    .pill { display:inline-block; padding:7px 14px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--gold); font-size:.83rem; font-weight:800; }
+    .grid-two,.grid-three,.stock-grid,.alloc-grid,.mini-stats { display:grid; gap:14px; }
+    .grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .stock-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .alloc-grid { grid-template-columns:1.05fr .95fr; }
+    .mini-stats { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:16px; }
+    .allocation-panel { background:linear-gradient(135deg,#1b1b24 0%,#292334 48%,#37263d 100%); color:#fff; border:none; box-shadow:0 16px 34px rgba(48,29,34,.22); }
+    .allocation-panel .muted { color:#d8d1df; }
+    .gauge-wrap { display:flex; align-items:center; justify-content:center; padding:10px 0 4px; }
+    .gauge { width:250px; height:250px; border-radius:50%; position:relative; background:conic-gradient(#f1c85c 0 230.04deg,#8b8fa6 230.04deg 360deg); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 28px rgba(0,0,0,.22), inset 0 0 0 10px rgba(255,255,255,.04); }
+    .gauge::before { content:""; position:absolute; inset:18px; border-radius:50%; background:radial-gradient(circle at 50% 35%,#2b2a33 0%,#17181d 65%,#111318 100%); }
+    .gauge-inner { position:relative; z-index:1; text-align:center; }
+    .gauge-label { font-size:1.05rem; font-weight:800; }
+    .gauge-value { font-size:3.8rem; font-weight:900; line-height:1; margin-top:10px; }
+    .gauge-value span { font-size:2rem; }
+    .countdown { text-align:center; margin-top:8px; }
+    .countdown .t1 { color:#d8d1df; font-weight:800; }
+    .countdown .t2 { font-size:2rem; font-weight:900; }
+    .stat-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:12px; }
+    .stat-box strong { display:block; font-size:1.35rem; color:#f1c85c; margin-top:4px; }
+    .tag { display:inline-block; margin-bottom:10px; background:var(--gold-soft); color:#8a6135; padding:5px 11px; border-radius:999px; font-size:.8rem; font-weight:800; }
+    .code { font-size:1.2rem; font-weight:900; }
+    .name { color:var(--sub); margin-top:2px; }
+    .price { font-size:1.8rem; font-weight:900; margin:10px 0 4px; }
+    .change-down { color:#b14b3d; font-weight:900; }
+    .change-up { color:#2a8a55; font-weight:900; }
+    .muted { color:var(--sub); }
+    .bigline { font-size:1.08rem; font-weight:800; line-height:1.6; margin:0 0 10px; }
+    ul { margin:10px 0 0; padding-left:1.2rem; color:var(--sub); }
+    .ig-card { display:flex; justify-content:center; margin-top:18px; }
+    .ig-link { display:block; width:100%; text-decoration:none; color:inherit; background:linear-gradient(180deg,#fffdfa 0%,#fff8ef 100%); border:1px solid var(--line); border-radius:28px; padding:24px 22px; }
+    .ig-top { text-align:center; color:#8c6b48; font-weight:900; font-size:1.1rem; letter-spacing:.08em; margin-bottom:18px; }
+    .ig-name { font-size:2rem; font-weight:900; color:#877763; margin-bottom:12px; }
+    .ig-tags { color:#6d655c; font-size:1.05rem; margin-bottom:18px; line-height:1.8; }
+    .ig-desc { color:#5f5952; font-size:1.25rem; font-weight:500; margin-bottom:18px; }
+    .ig-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 24px; border-radius:999px; border:1px solid var(--line); background:#fff; color:#7b5a34; font-size:1.15rem; font-weight:900; }
+    .footer { margin-top:22px; text-align:center; color:#8f857d; font-size:.9rem; }
+    @media (max-width:680px) {
+      h1 { font-size:1.78rem; }
+      .grid-two,.grid-three,.stock-grid,.alloc-grid,.mini-stats { grid-template-columns:1fr; }
+      .wrap { padding:12px 10px 64px; }
+      .hero,.section { padding:18px 14px; border-radius:22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="banner">─── 𝓡𝓲𝓬𝓱 𝓒𝓱𝓮𝓻𝓲𝓮 ───</div>
+      <div class="pill">✨ 2026/04/30 美股預習</div>
+      <h1>今晚先看半導體設備鏈能不能止跌回穩，主線還在 AI，但節奏不能亂追</h1>
+      <p class="lead">這次依妳剛傳的方舟運算與美股價值 / 升溫清單，先把今晚的資金位置、價值區名單與升溫提醒整合成一頁。重點不是看到盤前跳動就亂進，而是分辨誰還在價值區、誰已經進入升溫區。</p>
+    </section>
+
+    <section class="ig-card">
+      <a class="ig-link" href="https://www.instagram.com/cherie.estilista/" target="_blank" rel="noopener noreferrer">
+        <div class="ig-top">──── Rich Cherie ────</div>
+        <div class="ig-name">鑫彤女王Cherie</div>
+        <div class="ig-tags">■ 房產投資　■ 理財實戰　■ 美業領航</div>
+        <div class="ig-desc">美股預習 × AI 主線 × 每日盤前觀察</div>
+        <div class="ig-btn">Instagram｜cherie.estilista</div>
+      </a>
+    </section>
+
+    <section class="section">
+      <h2>🧮 方舟運算持股配置摘要</h2>
+      <div class="alloc-grid">
+        <div class="card allocation-panel">
+          <div class="tag">持股配置建議</div>
+          <div class="gauge-wrap">
+            <div class="gauge">
+              <div class="gauge-inner">
+                <div class="gauge-label">持股配置建議</div>
+                <div class="gauge-value">63.9<span>%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="countdown">
+            <div class="t1">更新倒數</div>
+            <div class="t2">03:51</div>
+            <div class="muted">min sec</div>
+          </div>
+        </div>
+        <div class="card allocation-panel">
+          <div class="tag">資金與布局</div>
+          <div class="mini-stats">
+            <div class="stat-box"><div class="muted">台股庫存</div><strong>760,000</strong></div>
+            <div class="stat-box"><div class="muted">美股庫存</div><strong>1,988,302</strong></div>
+            <div class="stat-box"><div class="muted">資金總額</div><strong>10,121,852</strong></div>
+            <div class="stat-box"><div class="muted">現在持股</div><strong>2,748,302</strong></div>
+            <div class="stat-box"><div class="muted">現在持股比</div><strong>21.35%</strong></div>
+            <div class="stat-box"><div class="muted">建議持股</div><strong>8,224,028</strong></div>
+            <div class="stat-box"><div class="muted">建議持股比</div><strong>63.9%</strong></div>
+            <div class="stat-box"><div class="muted">建議閒錢</div><strong>4,646,126</strong></div>
+            <div class="stat-box"><div class="muted">建議布局金額</div><strong>5,475,726</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>📌 今晚先看什麼</h2>
+      <div class="grid-three">
+        <div class="card"><div class="tag">主線</div><p class="bigline">主線依舊是 AI 與半導體，但設備鏈與高波動成長股開始分化，今晚先看誰能守住價值區。</p></div>
+        <div class="card"><div class="tag">節奏</div><p class="bigline">目前持股比只有 21.35%，離建議持股 63.9% 還有空間，代表今晚的盤前觀察重點是挑對標的，不是怕沒上車亂追。</p></div>
+        <div class="card"><div class="tag">策略</div><p class="bigline">價值區優先看是否維持邏輯，升溫區則重點看是不是該降風險，不要把同一套節奏套全部股票。</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🧭 美股價值區整理</h2>
+      <div class="stock-grid">
+        <div class="card"><div class="code">SATL</div><div class="name">SATELLOGIC INC｜航空航天與國防</div><div class="price">6.56</div><div class="change-down">+0.41 (+6.67%)</div><div class="muted">題材偏航太國防，小型股波動大，重點看持續性而不是單日拉抬。</div></div>
+        <div class="card"><div class="code">FLY</div><div class="name">FIREFLY AEROSPACE｜航空航天與國防</div><div class="price">33.6</div><div class="change-down">+0.11 (+0.33%)</div><div class="muted">仍在價值區，偏題材型觀察股，不宜用半導體權值股標準看待。</div></div>
+        <div class="card"><div class="code">AMAT</div><div class="name">應用材料｜半導體設備及材料</div><div class="price">387.91~388.37</div><div class="change-down">約 +1.39% ~ +1.51%</div><div class="muted">設備股是今晚重點觀察，若 AMAT 能止穩，代表設備鏈壓力有機會緩和。</div></div>
+        <div class="card"><div class="code">LITE</div><div class="name">LUMENTUM｜通信設備</div><div class="price">872.94~873</div><div class="change-down">約 +1.70% ~ +1.71%</div><div class="muted">光通訊仍有題材，但因波動大，價值區不等於可以無條件追。</div></div>
+        <div class="card"><div class="code">AVGO</div><div class="name">博通｜半導體</div><div class="price">410.54</div><div class="change-down">約 +1.25% ~ +1.26%</div><div class="muted">AVGO 還在價值區，代表邏輯仍在，但節奏上更偏逢回佈局，不追高。</div></div>
+        <div class="card"><div class="code">GEV</div><div class="name">GE VERNOVA｜公用事業 - 可再生能源</div><div class="price">1,075.15~1,075.9</div><div class="change-down">約 +1.13% ~ +1.20%</div><div class="muted">屬於非純 AI 支線，能反映資金是否願意往主線外擴散。</div></div>
+        <div class="card"><div class="code">TSM</div><div class="name">台積電 ADR｜半導體</div><div class="price">392.1</div><div class="change-up">-1.73 (-0.44%)</div><div class="muted">TSM 仍在價值區，對整體半導體信心有指標性意義。</div></div>
+        <div class="card"><div class="code">NVDA</div><div class="name">輝達｜半導體</div><div class="price">203.5~203.58</div><div class="change-up">約 -2.71% ~ -2.75%</div><div class="muted">跌幅雖在，但仍列價值區，代表主線核心沒有直接被判出場。</div></div>
+        <div class="card"><div class="code">MU</div><div class="name">美光科技｜半導體</div><div class="price">523~523.12</div><div class="change-down">約 +0.87% ~ +0.90%</div><div class="muted">MU 同時出現在價值區與升溫區交界感最強，今晚更適合看節奏而不是情緒。</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🔥 美股升溫區提醒</h2>
+      <div class="grid-two">
+        <div class="card">
+          <div class="tag">升溫名單</div>
+          <ul>
+            <li>BE｜電氣設備及零件</li>
+            <li>GOOG｜互聯網內容及資訊</li>
+            <li>MU｜半導體</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">解讀</div>
+          <ul>
+            <li>升溫區不是不能碰，而是代表位置偏熱，節奏上更要防追高。</li>
+            <li>GOOG 進升溫區，表示大型科技權值股也開始有熱度擴散，不再只有 AI 晶片獨強。</li>
+            <li>MU 同時有價值區與升溫感，代表它是今晚最需要看盤中續強或轉弱訊號的標的之一。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🧠 今晚主線判讀</h2>
+      <div class="grid-two">
+        <div class="card green">
+          <div class="tag">有利因素</div>
+          <ul>
+            <li>持股比只有 21.35%，代表整體資金結構還算健康，還有主動布局空間。</li>
+            <li>價值區名單仍集中在半導體、設備、光通訊與航太，說明市場主線還沒散掉。</li>
+            <li>TSM、NVDA、AVGO 仍在價值區，核心主線沒有被全面踢出。</li>
+          </ul>
+        </div>
+        <div class="card amber">
+          <div class="tag">風險因素</div>
+          <ul>
+            <li>MU 進入升溫區，代表記憶體鏈短線情緒偏熱，節奏抓不好容易追在高點。</li>
+            <li>若 AMAT、LITE、AVGO 晚上開盤後續弱，會代表這波回穩只是盤前假修復。</li>
+            <li>航太題材股 SATL、FLY 雖亮眼，但波動很大，不適合用來代表整體市場風向。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>📈 一句話結論</h2>
+      <div class="card">
+        <p class="bigline">今晚不是全面追價的盤，而是看 AI 與半導體主線裡，哪些還在價值區可續看、哪些已經升溫該放慢節奏，重點在選股與節奏，不在亂衝。</p>
+      </div>
+    </section>
+
+    <div class="footer">公開網址將收錄於 Rich Cherie 美股預習總站，後續每日新頁持續沿用同樣結構。</div>
+  </main>
+</body>
+</html>
