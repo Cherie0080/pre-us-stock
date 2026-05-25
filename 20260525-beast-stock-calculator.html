@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股神獸操作公式｜Rich Cherie</title>
+  <meta name="description" content="Rich Cherie 美股神獸操作公式，支撐位 × 1.18 互動計算機與操作流程整理。" />
+  <style>
+    :root{
+      --bg:#f7f3ec;--paper:#fffaf4;--card:#fff;--text:#171513;--sub:#726a62;
+      --gold:#b58a55;--gold-soft:#f2e2cf;--line:#eadbca;--dark:#231f1c;
+      --red:#c8242f;--green:#158052;--soft-red:#fff5f6;--soft-gold:#fbf4e8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;background:linear-gradient(180deg,#fdf9f3 0%,#f7f3ec 100%);color:var(--text);line-height:1.75}
+    .wrap{max-width:960px;margin:0 auto;padding:16px 12px 72px}
+    .hero,.section,.warning{background:var(--paper);border:1px solid var(--line);border-radius:28px}
+    .hero{padding:24px 18px;box-shadow:0 16px 34px rgba(80,56,30,.08)}
+    .banner{display:block;text-align:center;padding:10px 14px;margin-bottom:12px;border-radius:999px;background:linear-gradient(135deg,#fff8ef 0%,#f2dfc7 100%);border:1px solid var(--line);color:#9a6b3d;font-weight:800;letter-spacing:.08em}
+    .brand{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:24px;padding:16px;margin-bottom:16px}
+    .brand-title{font-size:1.12rem;font-weight:800;margin-bottom:8px}
+    .brand-sub{color:var(--sub);margin-bottom:6px}
+    .ig-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#8a5b2f;font-weight:700;text-decoration:none}
+    .ig-icon{width:18px;height:18px}
+    .pill{display:inline-block;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--gold);font-size:.83rem;font-weight:800;letter-spacing:.06em}
+    h1{font-size:2.2rem;line-height:1.18;margin:16px 0 12px;letter-spacing:-.03em}
+    h2{font-size:1.45rem;margin:0 0 12px}
+    .lead{color:var(--sub);margin:0}
+    .section,.warning{margin-top:18px;padding:20px 16px}
+    .grid,.steps{display:grid;gap:14px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px}
+    .formula{background:var(--soft-gold);border:1px solid #e7d8bd;border-radius:22px;padding:22px;text-align:center;font-size:clamp(24px,4vw,40px);font-weight:900;margin:16px 0 14px}
+    .formula span{color:var(--red)}
+    .muted{color:var(--sub)}
+    .calculator{display:grid;gap:14px}
+    label{font-weight:700;font-size:1rem}
+    input{width:100%;border:1px solid #d9d0c0;border-radius:16px;padding:16px;font-size:1.1rem;background:#fffdf9}
+    button{border:0;border-radius:16px;padding:16px 18px;font-size:1.05rem;font-weight:900;color:#fff;background:var(--dark);cursor:pointer}
+    button:hover{opacity:.92}
+    .result{border-radius:18px;padding:22px;background:#f3f0eb;font-size:1.1rem;font-weight:900;min-height:88px}
+    .price{color:var(--red);font-size:2rem}
+    .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .step{border:1px solid #e8e0d6;border-radius:22px;padding:20px;background:#fff}
+    .num{width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:900;margin-bottom:12px;background:var(--dark)}
+    .num.green{background:var(--green)} .num.gold{background:var(--gold)} .num.red{background:var(--red)}
+    .step strong{display:block;font-size:1.08rem;margin-bottom:6px}
+    .logic{margin:0;padding-left:1.2rem}
+    .logic li{margin-bottom:8px}
+    .warning{background:var(--soft-red);border-left:6px solid var(--red)}
+    .footer{margin-top:20px;color:#8f857d;font-size:.9rem;text-align:center}
+    @media (max-width:680px){h1{font-size:1.82rem}.steps{grid-template-columns:1fr}.wrap{padding:12px 10px 64px}.hero,.section,.warning{padding:18px 14px;border-radius:22px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="banner">─── 𝓡𝓲𝓬𝓱 𝓒𝓱𝓮𝓻𝓲𝓮 ───</div>
+      <div class="brand">
+        <div class="brand-title">鑫彤女王 𝔛𝔦𝔫𝔱𝔬𝔫𝔤 𝔔𝔲𝔢𝔢𝔫</div>
+        <div class="brand-sub">▫️ 房產投資 ▫️ 理財實戰 ▫️ 美業領航</div>
+        <a class="ig-link" href="https://www.instagram.com/cherie.estilista" target="_blank" rel="noopener noreferrer"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>Instagram｜cherie.estilista</a>
+      </div>
+      <span class="pill">US STOCK TRADING NOTE</span>
+      <h1>美股神獸操作公式</h1>
+      <p class="lead">不是一直抱，是用「支撐位 × 1.18」判斷強弱與出場點。</p>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>一、核心公式</h2>
+        <div class="formula">支撐位 × <span>1.18</span> = 神獸觀察價</div>
+        <p class="muted">當現價高於神獸觀察價，代表走勢仍偏強；當價格滑落時，要回頭檢查是否跌破支撐位。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>二、互動計算機</h2>
+        <div class="calculator">
+          <div>
+            <label for="support">輸入支撐位價格</label>
+            <input id="support" type="number" inputmode="decimal" placeholder="例如：1294" />
+          </div>
+          <button onclick="calculateBeastPrice()">計算神獸觀察價</button>
+          <div class="result" id="result">請輸入支撐位後按下計算</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>三、操作判斷流程</h2>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><strong>先找支撐位</strong><p class="muted">用系統或盤面資料抓出目前重要支撐位。</p></div>
+          <div class="step"><div class="num green">2</div><strong>支撐位 × 1.18</strong><p class="muted">算出神獸觀察價，作為續抱或警戒的參考。</p></div>
+          <div class="step"><div class="num gold">3</div><strong>現價高於觀察價</strong><p class="muted">代表動能偏強，容易繼續上推，不急著賣。</p></div>
+          <div class="step"><div class="num red">4</div><strong>跌破支撐位</strong><p class="muted">代表強勢結構被破壞，優先考慮獲利出場。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>四、公開版口訣</h2>
+        <ol class="logic">
+          <li>先看支撐位，不憑感覺亂追。</li>
+          <li>用支撐位乘上 1.18，抓出神獸觀察價。</li>
+          <li>現價站上觀察價，代表多方仍強。</li>
+          <li>價格開始回落，就看有沒有跌破支撐。</li>
+          <li>沒跌破，續抱觀察；跌破，就先獲利保護本金。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="warning">
+      <h2>風險提醒</h2>
+      <p>這是紀律型交易公式，只是用來幫助判斷強弱與風險位置，不代表保證獲利，也不構成任何投資建議。實際操作仍需搭配資金控管、部位配置與個人風險承受度。</p>
+    </section>
+
+    <div class="footer">Cherie 市場筆記｜公式教學版</div>
+  </main>
+
+  <script>
+    function calculateBeastPrice() {
+      const supportInput = document.getElementById('support');
+      const resultBox = document.getElementById('result');
+      const support = Number(supportInput.value);
+      if (!support || support <= 0) {
+        resultBox.innerHTML = '請輸入正確的支撐位價格';
+        return;
+      }
+      const beastPrice = support * 1.18;
+      resultBox.innerHTML = `神獸觀察價：<br><span class="price">${beastPrice.toFixed(2)}</span><br><span style="font-size:16px;color:#666;">公式：${support.toFixed(2)} × 1.18 = ${beastPrice.toFixed(2)}</span>`;
+    }
+  </script>
+</body>
+</html>
