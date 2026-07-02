@@ -93,10 +93,10 @@
         <div>
           <span class="pill">ARK POSITION CALCULATOR</span>
           <h1>方舟持股比例計算機</h1>
-          <p class="lead">輸入現金閒錢、台股庫存市值、美股庫存市值後，系統會自動換算目前持股比例，並依照你手動設定的建議持股比例，算出現在可佈局或需要調節的金額。</p>
+          <p class="lead">輸入台幣現金、美金現金、台股庫存市值與美股庫存市值後，系統會自動換算目前持股比例，並依照你手動設定的建議持股比例，算出現在可佈局或需要調節的金額。</p>
         </div>
         <div class="formula-box">
-          <div class="formula">目前持股比例 ＝（台股庫存市值＋美股庫存市值）÷（股票總市值＋現金閒錢）</div>
+          <div class="formula">目前持股比例 ＝（台股庫存市值＋美股庫存市值）÷（股票總市值＋台幣現金＋美金現金換算台幣）</div>
           <div class="formula" style="margin-top:10px;">建議持股比例可自行修改，之後系統會用你的目標比例，反推現在應該加碼或調節多少。</div>
         </div>
       </div>
@@ -108,8 +108,17 @@
           <h2>一、輸入區</h2>
           <div class="field-grid">
             <div>
-              <label for="cash">現金閒錢</label>
-              <input id="cash" type="number" inputmode="decimal" placeholder="例如：300000" />
+              <label for="cashTwd">台幣現金閒錢</label>
+              <input id="cashTwd" type="number" inputmode="decimal" placeholder="例如：300000" />
+            </div>
+            <div>
+              <label for="cashUsd">美金現金閒錢</label>
+              <input id="cashUsd" type="number" inputmode="decimal" placeholder="例如：10000" />
+            </div>
+            <div>
+              <label for="usdToTwd">美元匯率（1 USD = ? TWD）</label>
+              <input id="usdToTwd" type="number" inputmode="decimal" step="0.01" placeholder="例如：32" value="32" />
+              <div class="hint">美金現金會先依這個匯率換算成台幣，再一起算總資產。</div>
             </div>
             <div>
               <label for="targetRatio">建議持股比例（%）</label>
@@ -117,11 +126,11 @@
               <div class="hint">這個數字可以自己更新，系統會自動保存。</div>
             </div>
             <div>
-              <label for="twStock">台股庫存市值</label>
+              <label for="twStock">台股庫存市值（台幣）</label>
               <input id="twStock" type="number" inputmode="decimal" placeholder="例如：500000" />
             </div>
             <div>
-              <label for="usStock">美股庫存市值</label>
+              <label for="usStock">美股庫存市值（台幣換算後）</label>
               <input id="usStock" type="number" inputmode="decimal" placeholder="例如：200000" />
             </div>
           </div>
@@ -211,7 +220,9 @@
 
     function saveState() {
       const state = {
-        cash: document.getElementById('cash').value,
+        cashTwd: document.getElementById('cashTwd').value,
+        cashUsd: document.getElementById('cashUsd').value,
+        usdToTwd: document.getElementById('usdToTwd').value,
         twStock: document.getElementById('twStock').value,
         usStock: document.getElementById('usStock').value,
         targetRatio: document.getElementById('targetRatio').value
@@ -224,7 +235,9 @@
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) return;
         const state = JSON.parse(raw);
-        document.getElementById('cash').value = state.cash || '';
+        document.getElementById('cashTwd').value = state.cashTwd || '';
+        document.getElementById('cashUsd').value = state.cashUsd || '';
+        document.getElementById('usdToTwd').value = state.usdToTwd || '32';
         document.getElementById('twStock').value = state.twStock || '';
         document.getElementById('usStock').value = state.usStock || '';
         document.getElementById('targetRatio').value = state.targetRatio || '70';
@@ -232,7 +245,9 @@
     }
 
     function calculateAllocation() {
-      const cash = Number(document.getElementById('cash').value) || 0;
+      const cashTwd = Number(document.getElementById('cashTwd').value) || 0;
+      const cashUsd = Number(document.getElementById('cashUsd').value) || 0;
+      const usdToTwd = Number(document.getElementById('usdToTwd').value) || 0;
       const twStock = Number(document.getElementById('twStock').value) || 0;
       const usStock = Number(document.getElementById('usStock').value) || 0;
       const targetRatioInput = Number(document.getElementById('targetRatio').value);
@@ -242,16 +257,17 @@
       const summaryAmount = document.getElementById('summaryAmount');
       const summaryText = document.getElementById('summaryText');
 
-      if (cash < 0 || twStock < 0 || usStock < 0 || Number.isNaN(targetRatioInput) || targetRatioInput < 0 || targetRatioInput > 100) {
+      if (cashTwd < 0 || cashUsd < 0 || usdToTwd <= 0 || twStock < 0 || usStock < 0 || Number.isNaN(targetRatioInput) || targetRatioInput < 0 || targetRatioInput > 100) {
         summaryBox.className = 'summary warn';
         summaryTitle.textContent = '請先確認輸入數值';
         summaryAmount.textContent = '$0';
-        summaryText.textContent = '現金、庫存市值不可為負數，建議持股比例請填 0～100。';
+        summaryText.textContent = '台幣現金、美金現金、庫存市值不可為負數，美元匯率需大於 0，建議持股比例請填 0～100。';
         return;
       }
 
       const stock = twStock + usStock;
-      const total = cash + stock;
+      const totalCash = cashTwd + (cashUsd * usdToTwd);
+      const total = totalCash + stock;
       const currentRatio = total > 0 ? (stock / total) * 100 : 0;
       const targetRatio = clamp(targetRatioInput, 0, 100);
       const targetStockValue = total * (targetRatio / 100);
@@ -300,7 +316,9 @@
     }
 
     function resetForm() {
-      document.getElementById('cash').value = '';
+      document.getElementById('cashTwd').value = '';
+      document.getElementById('cashUsd').value = '';
+      document.getElementById('usdToTwd').value = '32';
       document.getElementById('twStock').value = '';
       document.getElementById('usStock').value = '';
       document.getElementById('targetRatio').value = '70';
@@ -320,7 +338,7 @@
     }
 
     document.addEventListener('input', (e) => {
-      if (e.target.matches('#cash, #twStock, #usStock, #targetRatio')) {
+      if (e.target.matches('#cashTwd, #cashUsd, #usdToTwd, #twStock, #usStock, #targetRatio')) {
         saveState();
         if (e.target.id === 'targetRatio') {
           const targetRatio = clamp(Number(e.target.value) || 0, 0, 100);
