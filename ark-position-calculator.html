@@ -67,11 +67,12 @@
 
     .right-stack{display:grid;gap:12px}
     .ratio-card{padding:16px;background:var(--card-2)}
-    .ratio-grid{display:grid;grid-template-columns:1fr 220px 1fr;gap:12px;align-items:center}
+    .ratio-grid{display:grid;grid-template-columns:1fr 260px;gap:12px;align-items:center}
     .circle-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px}
     .circle-stack{position:relative;display:grid;place-items:center}
     .circle{--deg:0deg;--tone:var(--gold);width:176px;height:176px;border-radius:50%;background:conic-gradient(var(--tone) 0deg,var(--tone) var(--deg),#efe3d4 var(--deg),#efe3d4 360deg);display:grid;place-items:center}
     .circle::before{content:"";width:126px;height:126px;border-radius:50%;background:#fffaf4;box-shadow:inset 0 8px 18px rgba(90,62,34,.05)}
+    .circle-card.target{display:none}
     .circle-card.target .circle{--tone:var(--dark)}
     .circle-center{position:absolute;text-align:center;width:116px}
     .circle-value{font-size:2rem;line-height:1;font-weight:900}
@@ -193,7 +194,7 @@
                 <div class="summary-text" id="summaryText"></div>
               </div>
 
-              <div class="circle-card target">
+              <div class="circle-card target" aria-hidden="true">
                 <div class="circle-stack">
                   <div class="circle" id="targetRing"></div>
                   <div class="circle-center">
