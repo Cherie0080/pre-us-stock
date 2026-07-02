@@ -149,7 +149,7 @@
                 <div class="ring-label">目前持股比例</div>
               </div>
             </div>
-            <div class="ring-note">上方圓形 % 數，代表股票市值占總資產的比例。</div>
+            <div class="ring-note">上方圓形 % 數，代表股票市值占總資產的比例。<br>目前持股比例：<span id="currentRatioText">0%</span></div>
           </div>
           <div class="ring-card target">
             <div class="ring-stack">
@@ -159,7 +159,7 @@
                 <div class="ring-label">建議持股比例</div>
               </div>
             </div>
-            <div class="ring-note">這個比例由你自己決定，可依盤勢或策略隨時調整。</div>
+            <div class="ring-note">這個比例由你自己決定，可依盤勢或策略隨時調整。<br>建議持股比例：<span id="targetRatioText">70%</span></div>
           </div>
         </div>
       </div>
@@ -167,23 +167,39 @@
 
     <section class="section">
       <div class="card">
-        <h2>二、資產與比例</h2>
+        <h2>二、結果區</h2>
         <div class="stats">
           <div class="stat">
-            <div class="stat-title">總資產</div>
-            <div class="stat-value" id="totalAssets">$0</div>
+            <div class="stat-title">持股總市值｜台幣庫存</div>
+            <div class="stat-value" id="twStockValue">$0</div>
           </div>
           <div class="stat">
-            <div class="stat-title">股票總市值</div>
-            <div class="stat-value" id="stockValue">$0</div>
+            <div class="stat-title">持股總市值｜美股庫存</div>
+            <div class="stat-value" id="usStockValue">$0</div>
           </div>
           <div class="stat">
-            <div class="stat-title">目前持股比例</div>
-            <div class="stat-value" id="currentRatioText">0%</div>
+            <div class="stat-title">閒錢｜台幣</div>
+            <div class="stat-value" id="cashTwdValue">$0</div>
           </div>
           <div class="stat">
-            <div class="stat-title">建議持股比例</div>
-            <div class="stat-value" id="targetRatioText">70%</div>
+            <div class="stat-title">閒錢｜美金</div>
+            <div class="stat-value" id="cashUsdValue">$0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">現在持股總額</div>
+            <div class="stat-value" id="currentHoldAmount">$0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">現在閒錢總額</div>
+            <div class="stat-value" id="currentCashAmount">$0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">建議持股總額</div>
+            <div class="stat-value" id="suggestedHoldAmount">$0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">建議閒錢總額</div>
+            <div class="stat-value" id="suggestedCashAmount">$0</div>
           </div>
         </div>
       </div>
@@ -191,7 +207,7 @@
 
     <section class="section">
       <div class="card">
-        <h2>三、現在該怎麼做</h2>
+        <h2>三、建議調節或佈局金額</h2>
         <div class="summary" id="summaryBox">
           <div class="summary-title" id="summaryTitle">請先輸入數據並按下計算</div>
           <div class="summary-amount" id="summaryAmount">$0</div>
@@ -275,8 +291,14 @@
       const deployAmount = difference > 0 ? difference : 0;
       const trimAmount = difference < 0 ? Math.abs(difference) : 0;
 
-      document.getElementById('totalAssets').textContent = '$' + formatMoney(total);
-      document.getElementById('stockValue').textContent = '$' + formatMoney(stock);
+      document.getElementById('twStockValue').textContent = '$' + formatMoney(twStock);
+      document.getElementById('usStockValue').textContent = '$' + formatMoney(usStock);
+      document.getElementById('cashTwdValue').textContent = '$' + formatMoney(cashTwd);
+      document.getElementById('cashUsdValue').textContent = '$' + formatMoney(cashUsd) + ' USD';
+      document.getElementById('currentHoldAmount').textContent = '$' + formatMoney(stock);
+      document.getElementById('currentCashAmount').textContent = '$' + formatMoney(totalCash);
+      document.getElementById('suggestedHoldAmount').textContent = '$' + formatMoney(targetStockValue);
+      document.getElementById('suggestedCashAmount').textContent = '$' + formatMoney(total - targetStockValue);
       document.getElementById('currentRatioText').textContent = currentRatio.toFixed(1) + '%';
       document.getElementById('targetRatioText').textContent = targetRatio.toFixed(1) + '%';
       document.getElementById('currentRatioValue').textContent = currentRatio.toFixed(1) + '%';
@@ -323,8 +345,14 @@
       document.getElementById('usStock').value = '';
       document.getElementById('targetRatio').value = '70';
       localStorage.removeItem(STORAGE_KEY);
-      document.getElementById('totalAssets').textContent = '$0';
-      document.getElementById('stockValue').textContent = '$0';
+      document.getElementById('twStockValue').textContent = '$0';
+      document.getElementById('usStockValue').textContent = '$0';
+      document.getElementById('cashTwdValue').textContent = '$0';
+      document.getElementById('cashUsdValue').textContent = '$0 USD';
+      document.getElementById('currentHoldAmount').textContent = '$0';
+      document.getElementById('currentCashAmount').textContent = '$0';
+      document.getElementById('suggestedHoldAmount').textContent = '$0';
+      document.getElementById('suggestedCashAmount').textContent = '$0';
       document.getElementById('currentRatioText').textContent = '0%';
       document.getElementById('targetRatioText').textContent = '70%';
       document.getElementById('currentRatioValue').textContent = '0%';
@@ -350,8 +378,14 @@
     });
 
     function initializePage() {
-      document.getElementById('totalAssets').textContent = '$0';
-      document.getElementById('stockValue').textContent = '$0';
+      document.getElementById('twStockValue').textContent = '$0';
+      document.getElementById('usStockValue').textContent = '$0';
+      document.getElementById('cashTwdValue').textContent = '$0';
+      document.getElementById('cashUsdValue').textContent = '$0 USD';
+      document.getElementById('currentHoldAmount').textContent = '$0';
+      document.getElementById('currentCashAmount').textContent = '$0';
+      document.getElementById('suggestedHoldAmount').textContent = '$0';
+      document.getElementById('suggestedCashAmount').textContent = '$0';
       document.getElementById('currentRatioText').textContent = '0%';
       document.getElementById('currentRatioValue').textContent = '0%';
       document.getElementById('summaryBox').className = 'summary';
