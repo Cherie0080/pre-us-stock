@@ -210,7 +210,7 @@
             <div class="small-label" style="margin-bottom:12px;">DEPLOYMENT</div>
             <div class="deploy-grid">
               <div>
-                <label for="deployAmountAuto">可佈局金額</label>
+                <label for="deployAmountAuto" id="deployAmountLabel">可佈局金額</label>
                 <input id="deployAmountAuto" type="text" readonly />
               </div>
               <div>
@@ -277,6 +277,20 @@
       saveState();
     }
 
+    function setDeployMode(mode, amount) {
+      if (mode === 'trim') {
+        $('deployAmountLabel').textContent = '建議調節金額';
+        $('deployAmountAuto').value = '$' + formatMoney(amount);
+        $('deployAmountAuto').dataset.value = '0';
+        $('deployPerStock').textContent = '$0';
+        return;
+      }
+      $('deployAmountLabel').textContent = '可佈局金額';
+      $('deployAmountAuto').value = amount > 0 ? ('$' + formatMoney(amount)) : '';
+      $('deployAmountAuto').dataset.value = String(amount > 0 ? amount : 0);
+      updateDeployPerStock();
+    }
+
     function calculateAllocation() {
       const twStock = Number($('twStock').value) || 0;
       const usStock = Number($('usStock').value) || 0;
@@ -290,9 +304,7 @@
         $('summaryTitle').textContent = '請先確認輸入數值';
         $('summaryAmount').textContent = '$0';
         $('summaryText').textContent = '現金、庫存市值不可為負數，匯率需大於 0。';
-        $('deployAmountAuto').value = '$0';
-        $('deployAmountAuto').dataset.value = '0';
-        updateDeployPerStock();
+        setDeployMode('deploy', 0);
         return;
       }
 
@@ -312,17 +324,13 @@
       saveState();
 
       if (total === 0) {
-        $('deployAmountAuto').value = '';
-        $('deployAmountAuto').dataset.value = '0';
-        updateDeployPerStock();
+        setDeployMode('deploy', 0);
         setBlankSummary();
         return;
       }
 
       if (Math.abs(difference) < 0.5) {
-        $('deployAmountAuto').value = '$0';
-        $('deployAmountAuto').dataset.value = '0';
-        updateDeployPerStock();
+        setDeployMode('deploy', 0);
         $('centerResult').className = 'summary-box good';
         $('summaryTitle').textContent = '目前剛好貼近建議持股比例';
         $('summaryAmount').textContent = '$0';
@@ -331,9 +339,7 @@
       }
 
       if (deployAmount > 0) {
-        $('deployAmountAuto').value = '$' + formatMoney(deployAmount);
-        $('deployAmountAuto').dataset.value = String(deployAmount);
-        updateDeployPerStock();
+        setDeployMode('deploy', deployAmount);
         $('centerResult').className = 'summary-box good';
         $('summaryTitle').textContent = '現在可以布局的金額';
         $('summaryAmount').textContent = '$' + formatMoney(deployAmount);
@@ -341,9 +347,7 @@
         return;
       }
 
-      $('deployAmountAuto').value = '$0';
-      $('deployAmountAuto').dataset.value = '0';
-      updateDeployPerStock();
+      setDeployMode('trim', trimAmount);
       $('centerResult').className = 'summary-box warn';
       $('summaryTitle').textContent = '現在需要調節的金額';
       $('summaryAmount').textContent = '$' + formatMoney(trimAmount);
@@ -359,6 +363,7 @@
       $('targetRatio').value = '70';
       $('deployCount').value = '';
       localStorage.removeItem(STORAGE_KEY);
+      $('deployAmountLabel').textContent = '可佈局金額';
       $('deployAmountAuto').value = '';
       $('deployAmountAuto').dataset.value = '0';
       $('deployPerStock').textContent = '$0';
@@ -392,6 +397,7 @@
 
     function initializePage() {
       loadState();
+      $('deployAmountLabel').textContent = '可佈局金額';
       $('deployAmountAuto').value = '';
       $('deployAmountAuto').dataset.value = '0';
       $('deployPerStock').textContent = '$0';
