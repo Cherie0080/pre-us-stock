@@ -42,6 +42,8 @@
     h1{font-size:1.78rem;line-height:1.2;margin:10px 0 0}
     h2{font-size:1.02rem;margin:0 0 10px}
 
+    .scale-frame{width:100%;overflow:hidden}
+    .scale-canvas{width:100%;transform-origin:top left}
     .layout{display:grid;grid-template-columns:390px 1fr;gap:14px;align-items:start}
     .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:14px}
     .input-card{padding:16px}
@@ -95,9 +97,7 @@
     .footer{margin-top:20px;color:#8f857d;font-size:.9rem;text-align:center}
 
     @media (max-width:1040px){
-      .layout{grid-template-columns:1fr}
-      .ratio-grid{grid-template-columns:1fr}
-      .deploy-grid,.input-grid{grid-template-columns:1fr}
+      .scale-canvas{width:990px}
       .summary-amount{font-size:2.3rem}
     }
     @media (max-width:680px){
@@ -105,10 +105,6 @@
       .wrap{padding:12px 10px 64px}
       .hero,.section,.card{border-radius:22px}
       .hero,.section{padding:18px 14px}
-      .circle{width:188px;height:188px}
-      .circle::before{width:136px;height:136px}
-      .circle-value{font-size:2.1rem}
-      .target-ring{width:156px;height:156px}
     }
   </style>
 </head>
@@ -130,7 +126,9 @@
     </section>
 
     <section class="section">
-      <div class="layout">
+      <div class="scale-frame">
+        <div class="scale-canvas" id="scaleCanvas">
+          <div class="layout">
         <div class="card input-card">
           <div class="small-label">INPUT</div>
           <div class="target-box">
@@ -223,6 +221,7 @@
                 <div class="deploy-result-value" id="deployPerStock">$0</div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -396,6 +395,22 @@
       }
     });
 
+    function updateMobileScale() {
+      const canvas = $('scaleCanvas');
+      if (!canvas) return;
+      const frame = canvas.parentElement;
+      if (window.innerWidth > 1040) {
+        canvas.style.transform = 'scale(1)';
+        frame.style.height = 'auto';
+        return;
+      }
+      const baseWidth = 990;
+      const available = frame.clientWidth;
+      const scale = Math.min(1, available / baseWidth);
+      canvas.style.transform = `scale(${scale})`;
+      frame.style.height = (canvas.scrollHeight * scale) + 'px';
+    }
+
     function initializePage() {
       loadState();
       $('deployAmountLabel').textContent = '可佈局金額';
@@ -408,10 +423,12 @@
       $('currentRatioValue').textContent = '0%';
       updateRing('currentRing', 0);
       setBlankSummary();
+      updateMobileScale();
     }
 
+    window.addEventListener('resize', updateMobileScale);
     initializePage();
-    loadLiveFxRate();
+    loadLiveFxRate().finally(updateMobileScale);
   </script>
 </body>
 </html>
