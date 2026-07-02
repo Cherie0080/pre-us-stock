@@ -282,7 +282,7 @@
       const summaryText = document.getElementById('summaryText');
 
       if (cashTwd < 0 || cashUsd < 0 || usdToTwd <= 0 || twStock < 0 || usStock < 0 || Number.isNaN(targetRatioInput) || targetRatioInput < 0 || targetRatioInput > 100) {
-        summaryBox.className = 'summary warn';
+        summaryBox.className = 'summary center-focus warn';
         summaryTitle.textContent = '請先確認輸入數值';
         summaryAmount.textContent = '$0';
         summaryText.textContent = '台幣現金、美金現金、庫存市值不可為負數，美元匯率需大於 0，建議持股比例請填 0～100。';
@@ -324,7 +324,7 @@
       }
 
       if (Math.abs(difference) < 0.5) {
-        summaryBox.className = 'summary good';
+        summaryBox.className = 'summary center-focus good';
         summaryTitle.textContent = '目前剛好貼近你的建議持股比例';
         summaryAmount.textContent = '$0';
         summaryText.textContent = '現在不需要額外布局，也不需要調節，先維持現狀即可。';
@@ -332,14 +332,14 @@
       }
 
       if (deployAmount > 0) {
-        summaryBox.className = 'summary good';
+        summaryBox.className = 'summary center-focus good';
         summaryTitle.textContent = '現在可以布局的金額';
         summaryAmount.textContent = '$' + formatMoney(deployAmount);
         summaryText.textContent = '代表你目前持股比例低於建議持股比例，這個金額就是你現在還可以佈局的股票市值。';
         return;
       }
 
-      summaryBox.className = 'summary warn';
+      summaryBox.className = 'summary center-focus warn';
       summaryTitle.textContent = '現在需要調節的金額';
       summaryAmount.textContent = '$' + formatMoney(trimAmount);
       summaryText.textContent = '代表你目前持股比例高於建議持股比例，這個金額就是你現在需要調節的股票市值。';
