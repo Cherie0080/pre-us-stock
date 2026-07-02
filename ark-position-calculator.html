@@ -118,7 +118,7 @@
             <div>
               <label for="usdToTwd">美元匯率（1 USD = ? TWD）</label>
               <input id="usdToTwd" type="number" inputmode="decimal" step="0.01" placeholder="例如：32" value="32" />
-              <div class="hint">美金現金會先依這個匯率換算成台幣，再一起算總資產。</div>
+              <div class="hint" id="fxHint">美金現金會先依這個匯率換算成台幣，再一起算總資產。</div>
             </div>
             <div>
               <label for="targetRatio">建議持股比例（%）</label>
@@ -367,6 +367,9 @@
 
     document.addEventListener('input', (e) => {
       if (e.target.matches('#cashTwd, #cashUsd, #usdToTwd, #twStock, #usStock, #targetRatio')) {
+        if (e.target.id === 'usdToTwd') {
+          e.target.dataset.userEdited = '1';
+        }
         saveState();
         if (e.target.id === 'targetRatio') {
           const targetRatio = clamp(Number(e.target.value) || 0, 0, 100);
@@ -376,6 +379,24 @@
         }
       }
     });
+
+    async function loadLiveFxRate() {
+      try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD');
+        const data = await res.json();
+        if (data && data.rates && data.rates.TWD) {
+          const liveRate = Number(data.rates.TWD).toFixed(2);
+          const input = document.getElementById('usdToTwd');
+          if (!input.dataset.userEdited) {
+            input.value = liveRate;
+          }
+          document.getElementById('fxHint').textContent = `已自動帶入最新參考匯率：1 USD = ${liveRate} TWD。你也可以手動修改。`;
+          saveState();
+        }
+      } catch (e) {
+        document.getElementById('fxHint').textContent = '目前無法自動抓取匯率，先保留預設值 32，你也可以手動修改。';
+      }
+    }
 
     function initializePage() {
       document.getElementById('twStockValue').textContent = '$0';
@@ -401,6 +422,7 @@
     }
 
     initializePage();
+    loadLiveFxRate();
   </script>
 </body>
 </html>
