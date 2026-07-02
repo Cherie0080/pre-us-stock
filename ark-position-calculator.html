@@ -97,7 +97,7 @@
         </div>
         <div class="formula-box">
           <div class="formula">目前持股比例 ＝（台股庫存市值＋美股庫存市值）÷（股票總市值＋台幣現金＋美金現金換算台幣）</div>
-          <div class="formula" style="margin-top:10px;">建議持股比例可自行修改，之後系統會用你的目標比例，反推現在應該加碼或調節多少。</div>
+          <div class="formula" style="margin-top:10px;">建議調節或佈局金額，會直接依照「目前持股比例」與「建議持股比例」之間的差距，反推出你需要調節多少股票市值，或還可以佈局多少股票市值。</div>
         </div>
       </div>
     </section>
@@ -211,7 +211,7 @@
         <div class="summary" id="summaryBox">
           <div class="summary-title" id="summaryTitle">請先輸入數據並按下計算</div>
           <div class="summary-amount" id="summaryAmount">$0</div>
-          <div class="summary-text" id="summaryText">系統會依照你設定的建議持股比例，判斷現在是可布局、需調節，還是維持現狀。</div>
+          <div class="summary-text" id="summaryText">系統會依照你目前持股比例與建議持股比例之間的差距，判斷現在還可以佈局多少股票市值，或需要調節多少股票市值。</div>
         </div>
       </div>
     </section>
@@ -327,14 +327,14 @@
         summaryBox.className = 'summary good';
         summaryTitle.textContent = '現在可以布局的金額';
         summaryAmount.textContent = '$' + formatMoney(deployAmount);
-        summaryText.textContent = '代表目前持股比例低於你的建議持股比例，可依照這個金額分批布局。';
+        summaryText.textContent = '代表你目前持股比例低於建議持股比例，這個金額就是你現在還可以佈局的股票市值。';
         return;
       }
 
       summaryBox.className = 'summary warn';
       summaryTitle.textContent = '現在需要調節的金額';
       summaryAmount.textContent = '$' + formatMoney(trimAmount);
-      summaryText.textContent = '代表目前持股比例高於你的建議持股比例，可優先從位階較高或已有正報酬的部位調節。';
+      summaryText.textContent = '代表你目前持股比例高於建議持股比例，這個金額就是你現在需要調節的股票市值。';
     }
 
     function resetForm() {
@@ -362,7 +362,7 @@
       document.getElementById('summaryBox').className = 'summary';
       document.getElementById('summaryTitle').textContent = '請先輸入數據並按下計算';
       document.getElementById('summaryAmount').textContent = '$0';
-      document.getElementById('summaryText').textContent = '系統會依照你設定的建議持股比例，判斷現在是可布局、需調節，還是維持現狀。';
+      document.getElementById('summaryText').textContent = '系統會依照你目前持股比例與建議持股比例之間的差距，判斷現在還可以佈局多少股票市值，或需要調節多少股票市值。';
     }
 
     document.addEventListener('input', (e) => {
@@ -412,7 +412,7 @@
       document.getElementById('summaryBox').className = 'summary';
       document.getElementById('summaryTitle').textContent = '請先輸入數據並按下計算';
       document.getElementById('summaryAmount').textContent = '$0';
-      document.getElementById('summaryText').textContent = '系統會依照你設定的建議持股比例，判斷現在是可布局、需調節，還是維持現狀。';
+      document.getElementById('summaryText').textContent = '系統會依照你目前持股比例與建議持股比例之間的差距，判斷現在還可以佈局多少股票市值，或需要調節多少股票市值。';
       updateRing('currentRing', 0);
       loadState();
       const targetRatio = clamp(Number(document.getElementById('targetRatio').value) || 70, 0, 100);
